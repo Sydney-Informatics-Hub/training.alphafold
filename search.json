@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "CHEATSHEET.html",
-    "href": "CHEATSHEET.html",
-    "title": "Quarto template cheatsheet",
-    "section": "",
-    "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "AlphaFold",
@@ -63,73 +56,59 @@
     "text": "To connect to Artemis HPC, and follow this lesson, you will need a ‘terminal emulator’ program installed on your computer. Often just called a ‘terminal’, or ‘shell terminal’, ‘shell client’, terminal emulators give you a window with a command line interface through which you can send commands to be executed by your computer.\n\n\nIf you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nMac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nIf you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to https://putty.org and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n 2. Name this session “Artemis” and click ‘Save’\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
-    "objectID": "setup.html#a.-linux-systems",
-    "href": "setup.html#a.-linux-systems",
-    "title": "Setup",
+    "objectID": "notebooks/02_hpc.html",
+    "href": "notebooks/02_hpc.html",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
-    "text": "If you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell: ~~~ ssh -X @hpc.sydney.edu.au ~~~"
-  },
-  {
-    "objectID": "setup.html#b.-osx-mac-computers-and-laptops",
-    "href": "setup.html#b.-osx-mac-computers-and-laptops",
-    "title": "Setup",
-    "section": "",
-    "text": "Mac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal: ~~~ ssh -X @hpc.sydney.edu.au ~~~"
-  },
-  {
-    "objectID": "setup.html#c.-windows",
-    "href": "setup.html#c.-windows",
-    "title": "Setup",
-    "section": "",
-    "text": "If you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to https://putty.org and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n 2. Name this session “Artemis” and click ‘Save’\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
+    "text": "Introduction to the Artemis High Performance Computer\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/04_singularity.html",
     "href": "notebooks/04_singularity.html",
-    "title": "Running AlphaFold in a Docker/Singularity Container",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
     "text": "Running AlphaFold in a Docker/Singularity Container\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/03_artemis.html",
     "href": "notebooks/03_artemis.html",
-    "title": "Running AlphaFold on the Artemis HPC",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
     "text": "Running AlphaFold on the Artemis HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
+    "objectID": "notebooks/05_nci.html",
+    "href": "notebooks/05_nci.html",
+    "title": "Sydney Informatics Hub Course name",
+    "section": "",
+    "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
     "objectID": "notebooks/07_colabfold.html",
     "href": "notebooks/07_colabfold.html",
-    "title": "Running AlphaFold with ColabFold on Google Colab",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
     "text": "Running AlphaFold with ColabFold on Google Colab\n\nQuestions\n\nWhat is Google Colab and ColabFold?\nHow do I run AlphaFold with ColabFold?\nWhat are the limitations?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/06_aws.html",
     "href": "notebooks/06_aws.html",
-    "title": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
     "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
-    "objectID": "notebooks/02_hpc.html",
-    "href": "notebooks/02_hpc.html",
-    "title": "Introduction to the Artemis High Performance Computer",
-    "section": "",
-    "text": "Introduction to the Artemis High Performance Computer\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
     "objectID": "notebooks/01_alphafold.html",
     "href": "notebooks/01_alphafold.html",
-    "title": "Introduction to AlphaFold",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
     "text": "Introduction to AlphaFold\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
-    "objectID": "notebooks/05_nci.html",
-    "href": "notebooks/05_nci.html",
-    "title": "Running AlphaFold on NCI Gadi HPC",
+    "objectID": "CHEATSHEET.html",
+    "href": "CHEATSHEET.html",
+    "title": "Sydney Informatics Hub Course name",
     "section": "",
-    "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+    "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   }
 ]

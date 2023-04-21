@@ -1,1 +1,1 @@
-Sitemap: https://Sydney-Informatics-Hub.github.io/training.alphafold/sitemap.xml
+Sitemap: https://github.com/Sydney-Informatics-Hub/training.alphafold/sitemap.xml
