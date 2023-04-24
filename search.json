@@ -58,56 +58,56 @@
   {
     "objectID": "notebooks/02_hpc.html",
     "href": "notebooks/02_hpc.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Introduction to the Artemis High Performance Computer\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/04_singularity.html",
     "href": "notebooks/04_singularity.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Running AlphaFold in a Docker/Singularity Container\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/03_artemis.html",
     "href": "notebooks/03_artemis.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Running AlphaFold on the Artemis HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/05_nci.html",
     "href": "notebooks/05_nci.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/07_colabfold.html",
     "href": "notebooks/07_colabfold.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Running AlphaFold with ColabFold on Google Colab\n\nQuestions\n\nWhat is Google Colab and ColabFold?\nHow do I run AlphaFold with ColabFold?\nWhat are the limitations?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/06_aws.html",
     "href": "notebooks/06_aws.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/01_alphafold.html",
     "href": "notebooks/01_alphafold.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Introduction to AlphaFold\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "CHEATSHEET.html",
     "href": "CHEATSHEET.html",
-    "title": "Sydney Informatics Hub Course name",
+    "title": "AlphaFold at Sydney",
     "section": "",
     "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   }
