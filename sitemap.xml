@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/index.html</loc>
-    <lastmod>2023-04-24T01:07:08.015Z</lastmod>
+    <lastmod>2023-04-24T01:09:48.067Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/setup.html</loc>
-    <lastmod>2023-04-24T01:07:08.463Z</lastmod>
+    <lastmod>2023-04-24T01:09:48.603Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/02_hpc.html</loc>
-    <lastmod>2023-04-24T01:07:08.848Z</lastmod>
+    <lastmod>2023-04-24T01:09:49.071Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/04_singularity.html</loc>
-    <lastmod>2023-04-24T01:07:09.232Z</lastmod>
+    <lastmod>2023-04-24T01:09:49.527Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/03_artemis.html</loc>
-    <lastmod>2023-04-24T01:07:09.616Z</lastmod>
+    <lastmod>2023-04-24T01:09:49.975Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/05_nci.html</loc>
-    <lastmod>2023-04-24T01:07:09.996Z</lastmod>
+    <lastmod>2023-04-24T01:09:50.455Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/07_colabfold.html</loc>
-    <lastmod>2023-04-24T01:07:10.404Z</lastmod>
+    <lastmod>2023-04-24T01:09:50.947Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/06_aws.html</loc>
-    <lastmod>2023-04-24T01:07:10.784Z</lastmod>
+    <lastmod>2023-04-24T01:09:51.411Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/01_alphafold.html</loc>
-    <lastmod>2023-04-24T01:07:11.196Z</lastmod>
+    <lastmod>2023-04-24T01:09:51.895Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/CHEATSHEET.html</loc>
-    <lastmod>2023-04-24T01:07:11.556Z</lastmod>
+    <lastmod>2023-04-24T01:09:52.327Z</lastmod>
   </url>
 </urlset>
