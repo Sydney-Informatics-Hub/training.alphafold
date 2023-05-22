@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "To connect to Artemis HPC, and follow this lesson, you will need a ‘terminal emulator’ program installed on your computer. Often just called a ‘terminal’, or ‘shell terminal’, ‘shell client’, terminal emulators give you a window with a command line interface through which you can send commands to be executed by your computer.\n\n\nIf you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nMac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nIf you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to https://putty.org and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n 2. Name this session “Artemis” and click ‘Save’\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "setup.html#a.-linux-systems",
+    "href": "setup.html#a.-linux-systems",
+    "title": "Setup",
+    "section": "",
+    "text": "If you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell: ~~~ ssh -X @hpc.sydney.edu.au ~~~"
+  },
+  {
+    "objectID": "setup.html#b.-osx-mac-computers-and-laptops",
+    "href": "setup.html#b.-osx-mac-computers-and-laptops",
+    "title": "Setup",
+    "section": "",
+    "text": "Mac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal: ~~~ ssh -X @hpc.sydney.edu.au ~~~"
+  },
+  {
+    "objectID": "setup.html#c.-windows",
+    "href": "setup.html#c.-windows",
+    "title": "Setup",
+    "section": "",
+    "text": "If you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to https://putty.org and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n 2. Name this session “Artemis” and click ‘Save’\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "AlphaFold",
@@ -49,65 +77,72 @@
     "text": "Setup Instructions\nPlease attempt to complete the Setup Instructions before the course. We will run through this in the course too."
   },
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup",
-    "section": "",
-    "text": "To connect to Artemis HPC, and follow this lesson, you will need a ‘terminal emulator’ program installed on your computer. Often just called a ‘terminal’, or ‘shell terminal’, ‘shell client’, terminal emulators give you a window with a command line interface through which you can send commands to be executed by your computer.\n\n\nIf you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nMac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal: ~~~ ssh -X @hpc.sydney.edu.au ~~~\n\n\n\nIf you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to https://putty.org and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n 2. Name this session “Artemis” and click ‘Save’\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/02_hpc.html",
-    "href": "notebooks/02_hpc.html",
-    "title": "AlphaFold at Sydney",
-    "section": "",
-    "text": "Introduction to the Artemis High Performance Computer\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
     "objectID": "notebooks/04_singularity.html",
     "href": "notebooks/04_singularity.html",
-    "title": "AlphaFold at Sydney",
+    "title": "Running AlphaFold in a Docker/Singularity Container",
     "section": "",
     "text": "Running AlphaFold in a Docker/Singularity Container\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
-    "objectID": "notebooks/03_artemis.html",
-    "href": "notebooks/03_artemis.html",
-    "title": "AlphaFold at Sydney",
-    "section": "",
-    "text": "Running AlphaFold on the Artemis HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
     "objectID": "notebooks/05_nci.html",
     "href": "notebooks/05_nci.html",
-    "title": "AlphaFold at Sydney",
+    "title": "Running AlphaFold on NCI Gadi HPC",
     "section": "",
     "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
+    "objectID": "notebooks/03_artemis.html",
+    "href": "notebooks/03_artemis.html",
+    "title": "Running AlphaFold on the Artemis HPC",
+    "section": "",
+    "text": "Running AlphaFold on the Artemis HPC\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
     "objectID": "notebooks/07_colabfold.html",
     "href": "notebooks/07_colabfold.html",
-    "title": "AlphaFold at Sydney",
+    "title": "Running AlphaFold with ColabFold on Google Colab",
     "section": "",
     "text": "Running AlphaFold with ColabFold on Google Colab\n\nQuestions\n\nWhat is Google Colab and ColabFold?\nHow do I run AlphaFold with ColabFold?\nWhat are the limitations?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
-    "objectID": "notebooks/06_aws.html",
-    "href": "notebooks/06_aws.html",
-    "title": "AlphaFold at Sydney",
+    "objectID": "notebooks/02_hpc.html",
+    "href": "notebooks/02_hpc.html",
+    "title": "Introduction to the Artemis High Performance Computer",
     "section": "",
-    "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+    "text": "Introduction to the Artemis High Performance Computer\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "notebooks/01_alphafold.html",
     "href": "notebooks/01_alphafold.html",
-    "title": "AlphaFold at Sydney",
+    "title": "Introduction to AlphaFold2",
     "section": "",
-    "text": "Introduction to AlphaFold\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+    "text": "AlphaFold2 is a groundbreaking artificial intelligence system developed by DeepMind that focuses on predicting the three-dimensional structure of proteins. Proteins are essential molecules in our bodies that carry out various functions, and their structure plays a critical role in understanding their behavior and function.\nAlphaFold2 utilizes deep learning algorithms to analyze the amino acid sequence of a protein and predict its 3D structure accurately. By understanding the structure of proteins, scientists can gain insights into how they interact with other molecules, such as drugs, and how they function in biological processes. This knowledge can have profound implications for various fields, including medicine, drug discovery, and bioengineering.\nThe traditional methods for determining protein structures, such as X-ray crystallography and cryo-electron microscopy, can be time-consuming and expensive. AlphaFold2 significantly accelerates this process by providing accurate predictions in a fraction of the time. Its predictions have shown remarkable accuracy, comparable to experimental methods.\nBy providing researchers with reliable protein structure predictions, AlphaFold2 has the potential to revolutionize our understanding of biology and accelerate scientific discoveries. It can aid in designing more effective drugs, understanding disease mechanisms, and developing enzymes for industrial applications. Ultimately, AlphaFold2’s advancements in protein folding have the potential to transform multiple areas of research and have a profound impact on human health and well-being.\nThe original AlphaFold was introduced in 2018 and utilized deep learning techniques to predict protein structures. It made significant advancements in protein folding predictions compared to previous methods but still had limitations in accuracy.\nAlphaFold2, introduced in 2020, represents a major breakthrough in protein structure prediction. It incorporates novel algorithmic improvements and advanced machine learning techniques, including a deep neural network architecture, to significantly improve accuracy. AlphaFold2 achieved remarkable performance in the Critical Assessment of Structure Prediction (CASP) competition in 2020, outperforming other methods and approaching experimental accuracy for many protein structures.\nAlphaFold2 is much faster than its predecessor. The original AlphaFold required significant computational resources and time to generate structure predictions. In contrast, AlphaFold2 is significantly optimized and can deliver predictions within a matter of days, or even hours, for many proteins. Moreover, AlphaFold2 has been designed with scalability in mind. It can efficiently utilize distributed computing resources, enabling multiple protein structure predictions to be processed simultaneously.\nAlphaFold2 incorporates an attention mechanism that allows it to focus on relevant parts of the protein sequence when making predictions. This attention mechanism provides insights into the model’s decision-making process and makes it more interpretable than the original AlphaFold.\n\n\nThe AlphaFold2 Protein Structure Database is accessed through a web browser, allowing users to submit protein sequences and receive predicted structures via an online interface. It provides a user-friendly graphical interface that makes it accessible to non-experts and researchers without extensive programming or command line experience.\nThe AlphaFold2 Protein Structure Database is primarily intended for users who want to obtain protein structure predictions quickly and conveniently without the need for complex setups. Users can submit protein sequences, and the database provides predicted structures as outputs. It offers a straightforward interface with pre-defined settings and options.\n\n\n\nThe command line AlphaFold2 application is a software package that runs on a local machine or server. It is designed for advanced users and researchers familiar with command line interfaces and programming. It requires installation and configuration, but it offers more flexibility and control over the prediction process.\nIt is customizable and allows researchers to fine-tune the prediction process according to their specific requirements. It provides a wide range of command line options and parameters that can be modified to optimize predictions. This level of control is beneficial for researchers who want to experiment with different settings or integrate AlphaFold2 into their existing computational pipelines.\nThis course is aimed at researchers seeking to automate their use of AlphaFold. See the following pages for examples for how to use AlphaFold in different conditions and on different systems. Whilst these are targetted for Sydney University researchers, others may benefit from the general routines.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "notebooks/01_alphafold.html#manual-database-search",
+    "href": "notebooks/01_alphafold.html#manual-database-search",
+    "title": "Introduction to AlphaFold2",
+    "section": "",
+    "text": "The AlphaFold2 Protein Structure Database is accessed through a web browser, allowing users to submit protein sequences and receive predicted structures via an online interface. It provides a user-friendly graphical interface that makes it accessible to non-experts and researchers without extensive programming or command line experience.\nThe AlphaFold2 Protein Structure Database is primarily intended for users who want to obtain protein structure predictions quickly and conveniently without the need for complex setups. Users can submit protein sequences, and the database provides predicted structures as outputs. It offers a straightforward interface with pre-defined settings and options."
+  },
+  {
+    "objectID": "notebooks/01_alphafold.html#automation",
+    "href": "notebooks/01_alphafold.html#automation",
+    "title": "Introduction to AlphaFold2",
+    "section": "",
+    "text": "The command line AlphaFold2 application is a software package that runs on a local machine or server. It is designed for advanced users and researchers familiar with command line interfaces and programming. It requires installation and configuration, but it offers more flexibility and control over the prediction process.\nIt is customizable and allows researchers to fine-tune the prediction process according to their specific requirements. It provides a wide range of command line options and parameters that can be modified to optimize predictions. This level of control is beneficial for researchers who want to experiment with different settings or integrate AlphaFold2 into their existing computational pipelines.\nThis course is aimed at researchers seeking to automate their use of AlphaFold. See the following pages for examples for how to use AlphaFold in different conditions and on different systems. Whilst these are targetted for Sydney University researchers, others may benefit from the general routines."
+  },
+  {
+    "objectID": "notebooks/06_aws.html",
+    "href": "notebooks/06_aws.html",
+    "title": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)",
+    "section": "",
+    "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nWhat can I do?\nHow do I do it?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\n# I am a comment\npwd\n\nfor i in $(seq 1 10); do echo $i;done\n\nChallenge\nThis is a challenge question\n\n\nSolution\n\n\n#Declare the name of the function\necho \"Joy\"\n\n\n\nKey points\n\nKey\nPoints\nHere\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "CHEATSHEET.html",
     "href": "CHEATSHEET.html",
-    "title": "AlphaFold at Sydney",
+    "title": "Quarto template cheatsheet",
     "section": "",
     "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   }
