@@ -32,7 +32,8 @@ Make a new file called `alpha_job.pbs`.
 #PBS -l walltime=00:10:00
 #PBS -N alphafold2_job
 
-# Load necessary modules (on Artemis, this will load the correct python environment with AlphaFold installed)
+# Load necessary modules 
+(on Artemis, this will load the correct python environment with AlphaFold installed)
 module load alphafold2
 
 # Navigate to the AlphaFold2 directory
@@ -54,19 +55,34 @@ qsub alpha_job.pbs
 
 The search parameters for AlphaFold2 can vary depending on the specific requirements and goals of the protein structure prediction. Here are some typical search parameters that can be adjusted:
 
-    Input Sequence: The input sequence is the protein sequence for which the structure is being predicted. It is usually provided in FASTA format.
+- **Input Sequence:** 
 
-    Model Selection: AlphaFold2 offers different models for protein structure prediction. Users can choose the most suitable model based on factors such as speed, accuracy, or specific application requirements.
+  The input sequence is the protein sequence for which the structure is being predicted. It is usually provided in FASTA format.
 
-    Confidence Threshold: AlphaFold2 assigns confidence scores to its predictions. Users can set a confidence threshold to filter the predicted structures based on their confidence level. Structures with confidence scores below the threshold may be discarded or further analyzed separately.
+- **Model Selection:** 
+  
+  AlphaFold2 offers different models for protein structure prediction. Users can choose the most suitable model based on factors such as speed, accuracy, or specific application requirements.
 
-    Template Selection: AlphaFold2 utilizes known protein structures, called templates, to aid in its predictions. Users can specify the criteria for template selection, such as sequence similarity or structural homology, to guide the prediction process.
+- **Confidence Threshold:** 
 
-    Energy Minimization: After generating the initial structure predictions, AlphaFold2 can perform energy minimization to refine the predicted structures. Users can specify the parameters for energy minimization, such as the force field or optimization algorithm.
+  AlphaFold2 assigns confidence scores to its predictions. Users can set a confidence threshold to filter the predicted structures based on their confidence level. Structures with confidence scores below the threshold may be discarded or further analyzed separately.
 
-    Residue Range: In some cases, users may want to limit the prediction to a specific range of residues within the protein sequence. This can be useful when focusing on particular regions of interest or dealing with large proteins.
+- **Template Selection:** 
 
-    Output Format: AlphaFold2 can provide the predicted structures in various formats, such as PDB (Protein Data Bank) or mmCIF (macromolecular Crystallographic Information File). Users can specify the desired output format based on their downstream analysis or visualization needs.
+  AlphaFold2 utilizes known protein structures, called templates, to aid in its predictions. Users can specify the criteria for template selection, such as sequence similarity or structural homology, to guide the prediction process.
+
+- **Energy Minimization:** 
+
+  After generating the initial structure predictions, AlphaFold2 can perform energy minimization to refine the predicted structures. Users can specify the parameters for energy minimization, such as the force field or optimization algorithm.
+
+- **Residue Range:** 
+
+  In some cases, users may want to limit the prediction to a specific range of residues within the protein sequence. This can be useful when focusing on particular regions of interest or dealing with large proteins.
+
+- **Output Format:** 
+
+  AlphaFold2 can provide the predicted structures in various formats, such as PDB (Protein Data Bank) or mmCIF (macromolecular Crystallographic Information File). Users can specify the desired output format based on their downstream analysis or visualization needs.
+<br><br>
 
 These are just a few examples of the typical search parameters that can be adjusted when using AlphaFold2. The specific parameters used will depend on the objectives of the protein structure prediction and the available options provided by the AlphaFold2 software or interface being used.
 
