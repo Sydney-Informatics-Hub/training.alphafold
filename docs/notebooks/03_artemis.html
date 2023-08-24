@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -151,8 +185,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul></li>
-  <li><a href="#how-do-i-run-alphafold-on-artemis" id="toc-how-do-i-run-alphafold-on-artemis" class="nav-link" data-scroll-target="#how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</a></li>
-  <li><a href="#how-can-i-modify-a-template-alphafold-job" id="toc-how-can-i-modify-a-template-alphafold-job" class="nav-link" data-scroll-target="#how-can-i-modify-a-template-alphafold-job">How can I modify a template AlphaFold job?</a></li>
+  <li><a href="#how-do-i-run-alphafold-on-artemis" id="toc-how-do-i-run-alphafold-on-artemis" class="nav-link" data-scroll-target="#how-do-i-run-alphafold-on-artemis">How do I run alphaFold on Artemis?</a>
+  <ul class="collapse">
+  <li><a href="#make-a-pbs-jobscript" id="toc-make-a-pbs-jobscript" class="nav-link" data-scroll-target="#make-a-pbs-jobscript">Make a PBS Jobscript</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -163,8 +199,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="running-alphafold-on-the-artemis-hpc" class="level1">
 <h1>Running AlphaFold on the Artemis HPC</h1>
-<section id="questions" class="level3 questions">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<section id="questions" class="level2 questions">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ul>
 <li>How do I run AlphaFold on Artemis?</li>
 <li>How can I modify a template AlphaFold job?</li>
@@ -172,78 +208,58 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="how-do-i-run-alphafold-on-artemis" class="level1">
-<h1>How do I run AlphaFold on Artemis?</h1>
+<h1>How do I run alphaFold on Artemis?</h1>
 <p>AlphaFold can be accessed by executing</p>
-<pre><code>module load alphafold</code></pre>
-<p>Many of the databases are installed in <code>/project/data/alphafold</code>. If there is additional databases you require, please fill in a support ticket.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are several (large) required genetic databases and parameters AlphaFold requires. Different versions of these are conviently available on Artemis in the common folder: <code>/project/data/alphafold2/</code> If there is additional databases you require, please fill in a <a href="https://sydneyuni.service-now.com/sm?id=sc_cat_item&amp;sys_id=1ab0bb626d2935008dd31a4dcf150a21&amp;sysparm_category=56db92a0db1f73042d38cae43a961918">support ticket</a>.</p>
+<p>To actually run a computationally intensive AlphaFold job, we must create a PBS “jobscript”, which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution.</p>
+<section id="make-a-pbs-jobscript" class="level2">
+<h2 class="anchored" data-anchor-id="make-a-pbs-jobscript">Make a PBS Jobscript</h2>
+<p>Make a new file called <code>alpha_job.pbs</code>. The contents at a minimum, should look something like this.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -P Training</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=04:00:00</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N job01_gpu</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary modules (on Artemis, this will load the correct python environment with AlphaFold installed)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold hmmer hh-suite kalign</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your directory </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#cd /project/Training/ALPHAFOLD</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a working directory</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">WORKDIR</span><span class="op">=</span><span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the alphafold base database directory</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ALPHADB</span><span class="op">=</span>/project/data/alphafold2/20220323</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the AlphaFold2 prediction command. Note most database paths are required</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">run_alphafold.py</span> <span class="dt">\</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">--data_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span> <span class="dt">\</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniref90_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniref90/uniref90.fasta <span class="dt">\</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">--mgnify_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/mgnify/mgy_clusters_2018_12.fa <span class="dt">\</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">--template_mmcif_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/mmcif_files/ <span class="dt">\</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">--obsolete_pdbs_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/obsolete.dat <span class="dt">\</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">--fasta_paths</span><span class="op">=</span>/project/Training/DATA/input.fasta <span class="dt">\</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">--output_dir</span><span class="op">=</span><span class="va">${WORKDIR}</span>/output_directory_gpu <span class="dt">\</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">--db_preset</span><span class="op">=</span>full_dbs <span class="dt">\</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">--max_template_date</span><span class="op">=</span>2022-03-23 <span class="dt">\</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">--use_gpu_relax</span><span class="op">=</span>False <span class="dt">\</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">--model_preset</span><span class="op">=</span>monomer <span class="dt">\</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">--pdb70_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb70/pdb70 <span class="dt">\</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">--bfd_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt <span class="dt">\</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniclust30_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniclust30/uniclust30_2018_08/uniclust30_2018_08</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we can submit the job to the queue</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qsub</span> alpha_job.pbs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will execute when compute resources become availble. Check the status with:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qstat</span> <span class="at">-x</span> <span class="at">-u</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You will see most requirments are on Artemis already, but you must bring your own <code>.fasta</code> file.</p>
+
+
 </section>
-<section id="how-can-i-modify-a-template-alphafold-job" class="level1">
-<h1>How can I modify a template AlphaFold job?</h1>
-<p>Make a new file called <code>alpha_job.pbs</code>.</p>
-<pre><code>#!/bin/bash
-#PBS -P Training
-#PBS -l select=1:ncpus=4:mem=8gb:ngpus=0
-#PBS -l walltime=00:10:00
-#PBS -N alphafold2_job
-
-# Load necessary modules 
-(on Artemis, this will load the correct python environment with AlphaFold installed)
-module load alphafold2
-
-# Navigate to the AlphaFold2 directory
-cd /project/Training/ALPHAFOLD
-
-# Run the AlphaFold2 prediction command
-python run_alphafold2.py \
-  --input /project/Training/ALPHAFOLD/input.fasta \
-  --output /path/to/output_directory \
-  --model /project/data/alphafold
-  --parameters /path/to/alphafold2_parameters
-</code></pre>
-<p>Now submit the job to the queue</p>
-<pre><code>qsub alpha_job.pbs</code></pre>
-<p>The search parameters for AlphaFold2 can vary depending on the specific requirements and goals of the protein structure prediction. Here are some typical search parameters that can be adjusted:</p>
-<ul>
-<li><p><strong>Input Sequence:</strong></p>
-<p>The input sequence is the protein sequence for which the structure is being predicted. It is usually provided in FASTA format.</p></li>
-<li><p><strong>Model Selection:</strong></p>
-<p>AlphaFold2 offers different models for protein structure prediction. Users can choose the most suitable model based on factors such as speed, accuracy, or specific application requirements.</p></li>
-<li><p><strong>Confidence Threshold:</strong></p>
-<p>AlphaFold2 assigns confidence scores to its predictions. Users can set a confidence threshold to filter the predicted structures based on their confidence level. Structures with confidence scores below the threshold may be discarded or further analyzed separately.</p></li>
-<li><p><strong>Template Selection:</strong></p>
-<p>AlphaFold2 utilizes known protein structures, called templates, to aid in its predictions. Users can specify the criteria for template selection, such as sequence similarity or structural homology, to guide the prediction process.</p></li>
-<li><p><strong>Energy Minimization:</strong></p>
-<p>After generating the initial structure predictions, AlphaFold2 can perform energy minimization to refine the predicted structures. Users can specify the parameters for energy minimization, such as the force field or optimization algorithm.</p></li>
-<li><p><strong>Residue Range:</strong></p>
-<p>In some cases, users may want to limit the prediction to a specific range of residues within the protein sequence. This can be useful when focusing on particular regions of interest or dealing with large proteins.</p></li>
-<li><p><strong>Output Format:</strong></p>
-<p>AlphaFold2 can provide the predicted structures in various formats, such as PDB (Protein Data Bank) or mmCIF (macromolecular Crystallographic Information File). Users can specify the desired output format based on their downstream analysis or visualization needs. <br><br></p></li>
-</ul>
-<p>These are just a few examples of the typical search parameters that can be adjusted when using AlphaFold2. The specific parameters used will depend on the objectives of the protein structure prediction and the available options provided by the AlphaFold2 software or interface being used.</p>
-<pre><code>python run_alphafold2.py \
-  --input input.fasta \
-  --output output_directory \
-  --model alphafold2_model \
-  --parameters alphafold2_parameters \
-  --cpu 4 \
-  --max_template_date 2022-01-01 \
-  --min_covered_residues 0.8 \
-  --max_recursion_depth 3 \
-  --max_hours 0.08</code></pre>
-<p>In this example:</p>
-<ul>
-<li><code>--input input.fasta</code> specifies the input FASTA file containing the protein sequence to be predicted.</li>
-<li><code>--output output_directory</code> specifies the directory where the output files will be saved.</li>
-<li><code>--model alphafold2_model points</code> to the AlphaFold2 model to be used for prediction.</li>
-<li><code>--parameters alphafold2_parameters</code> specifies the path to the AlphaFold2 parameters.</li>
-<li><code>--cpu $NCPUS</code> sets the number of CPUs to be used for the prediction to 4.</li>
-<li><code>--max_template_date 2022-01-01</code> restricts the use of templates that were released before January 1, 2022.</li>
-<li><code>--min_covered_residues</code> 0.8 specifies that at least 80% of the protein sequence must have template coverage for a template to be used.</li>
-<li><code>--max_recursion_depth 3</code> limits the recursion depth during template searching to 3.</li>
-<li><code>--max_hours 0.08</code> sets the maximum runtime for the prediction to 0.08 hours</li>
-</ul>
-
-
 </section>
 
 <p>All materials copyright Sydney Informatics Hub, University of Sydney</p></main> <!-- /main -->

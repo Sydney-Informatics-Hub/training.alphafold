@@ -1,6 +1,6 @@
-# Introduction to AlphaFold2
+# Introduction to AlphaFold
 
-AlphaFold2 is a groundbreaking artificial intelligence system developed by [DeepMind](https://www.deepmind.com/research/highlighted-research/alphafold) that focuses on predicting the three-dimensional structure of proteins. Proteins are essential molecules in our bodies that carry out various functions, and their structure plays a critical role in understanding their behavior and function.
+AlphaFold is a groundbreaking artificial intelligence system developed by [DeepMind](https://www.deepmind.com/research/highlighted-research/alphafold) that focuses on predicting the three-dimensional structure of proteins. Proteins are essential molecules in our bodies that carry out various functions, and their structure plays a critical role in understanding their behavior and function.
 
 AlphaFold2 utilizes deep learning algorithms to analyze the amino acid sequence of a protein and predict its 3D structure accurately. By understanding the structure of proteins, scientists can gain insights into how they interact with other molecules, such as drugs, and how they function in biological processes. This knowledge can have profound implications for various fields, including medicine, drug discovery, and bioengineering.
 

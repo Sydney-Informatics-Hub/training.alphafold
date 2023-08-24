@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -147,12 +181,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-the-high-performance-computer" id="toc-introduction-to-the-high-performance-computer" class="nav-link active" data-scroll-target="#introduction-to-the-high-performance-computer">Introduction to the High Performance Computer</a>
+  <li><a href="#introduction-to-the-high-performance-computing" id="toc-introduction-to-the-high-performance-computing" class="nav-link active" data-scroll-target="#introduction-to-the-high-performance-computing">Introduction to the High Performance Computing</a>
   <ul class="collapse">
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul></li>
-  <li><a href="#what-is-a-hpc" id="toc-what-is-a-hpc" class="nav-link" data-scroll-target="#what-is-a-hpc">What is a HPC?</a>
+  <li><a href="#what-is-the-artemis-hpc" id="toc-what-is-the-artemis-hpc" class="nav-link" data-scroll-target="#what-is-the-artemis-hpc">What is the Artemis HPC?</a>
   <ul class="collapse">
+  <li><a href="#getting-an-artemis-account" id="toc-getting-an-artemis-account" class="nav-link" data-scroll-target="#getting-an-artemis-account">Getting an Artemis Account</a></li>
   <li><a href="#connecting-to-artemis" id="toc-connecting-to-artemis" class="nav-link" data-scroll-target="#connecting-to-artemis">Connecting to Artemis</a></li>
   </ul></li>
   </ul>
@@ -163,8 +198,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction-to-the-high-performance-computer" class="level1">
-<h1>Introduction to the High Performance Computer</h1>
+<section id="introduction-to-the-high-performance-computing" class="level1">
+<h1>Introduction to the High Performance Computing</h1>
 <section id="questions" class="level3 questions">
 <h3 class="anchored" data-anchor-id="questions">Questions</h3>
 <ul>
@@ -173,8 +208,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="what-is-a-hpc" class="level1">
-<h1>What is a HPC?</h1>
+<section id="what-is-the-artemis-hpc" class="level1">
+<h1>What is the Artemis HPC?</h1>
 <p>HPC stands for ‘High Performance Computing’, our local HPC is called “Artemis”. You might colloquially refer to Artemis as a ‘supercomputer’. Technically, Artemis is a computing cluster, which is a whole lot of individual computers networked together. AS of 2023, Artemis consists of:</p>
 <pre><code>* 7,636 cores (CPUs)
 * 45 TB of RAM
@@ -187,17 +222,22 @@ ul.task-list li input[type="checkbox"] {
 * High RAM usage
 * Big data input or outputs
 * Are able to use multiple cores or nodes to run in parallel, and hence much faster</code></pre>
-<p>Artemis is available free of charge to all University of Sydney researchers. You do need a unikey, and a valid Research Dashboard Research Data Management Plan with Artemis access enabled.</p>
-<p>Artemis is also a great incentive to funding bodies to view your projects favourably – as they know you have the resources required to get the work done.</p>
-<p>Finally, if you do use Artemis for your research, please acknowledge us! This ensures that we continue to get the funding we need to provide you with what is really a first-grade computing resource. A suggested acknowledgment might say:</p>
+<p>If you do use Artemis for your research, please acknowledge us! This ensures that we continue to get the funding we need to provide you with what is really a first-grade computing resource. A suggested acknowledgment might say:</p>
 <blockquote class="blockquote">
 <p>The authors acknowledge the Sydney Informatics Hub and the University of Sydney’s high performance computing cluster, Artemis, for providing the computing resources that have contributed to the results reported herein.</p>
 </blockquote>
-<section id="connecting-to-artemis" class="level3">
-<h3 class="anchored" data-anchor-id="connecting-to-artemis">Connecting to Artemis</h3>
+<section id="getting-an-artemis-account" class="level2">
+<h2 class="anchored" data-anchor-id="getting-an-artemis-account">Getting an Artemis Account</h2>
+<p>Get an Artemis account by creating a project with Artemis HPC access in <a href="https://dashr.sydney.edu.au/">Researcher Dashboard (DashR)</a>.</p>
+<p>Artemis is available free of charge to all University of Sydney researchers. You only need a unikey, and a valid Research Dashboard Research Data Management Plan with Artemis access enabled.</p>
+</section>
+<section id="connecting-to-artemis" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-to-artemis">Connecting to Artemis</h2>
 <p>Connections to Artemis are remote connections – you’ll never sit at one of Artemis’ machines, which are stored in a secure data-centre in Western Sydney. Instead, you connect remotely into one of Artemis’ login nodes. Login nodes are Artemis machines that don’t perform any actual computing jobs, but simply provide users with an access gateway to Artemis’ filesystems and the PBS Pro job scheduler.</p>
 <p>You can thus connect to Artemis from anywhere, requiring only a terminal emulator with an SSH client. (If you’re not on the USyd network (ie off-campus), you’ll also need to connect to the University’s VPN.</p>
-<p>If you followed the Setup instructions, then you should already have the required software installed. If not, please go do this now!</p>
+<p>If you followed the <a href="https://sydney-informatics-hub.github.io/training.alphafold/setup.html">Setup instructions</a>, then you should already have the required software installed. If not, please go do this now!</p>
+<p>Once you are set up with an ssh client, connect with your unikey credentials with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> abcd123@hpc.sydney.edu.au</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

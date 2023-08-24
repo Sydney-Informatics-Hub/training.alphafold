@@ -1,115 +1,83 @@
 # Running AlphaFold on the Artemis HPC
 
-
 <div class="questions">
 
-### Questions
+## Questions
 
 - How do I run AlphaFold on Artemis?
 - How can I modify a template AlphaFold job?
 </div>
 
 
-# How do I run AlphaFold on Artemis?
+# How do I run alphaFold on Artemis?
 
 AlphaFold can be accessed by executing
-```
+```bash
 module load alphafold
 ```
 
-Many of the databases are installed in `/project/data/alphafold`.
-If there is additional databases you require, please fill in a support ticket.
+There are several (large) required genetic databases and parameters AlphaFold requires. Different versions of these are conviently available on Artemis in the common folder: `/project/data/alphafold2/` 
+If there is additional databases you require, please fill in a [support ticket](https://sydneyuni.service-now.com/sm?id=sc_cat_item&sys_id=1ab0bb626d2935008dd31a4dcf150a21&sysparm_category=56db92a0db1f73042d38cae43a961918).
 
 
-# How can I modify a template AlphaFold job?
+To actually run a computationally intensive AlphaFold job, we must create a PBS "jobscript", which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution. 
+
+## Make a PBS Jobscript
 
 Make a new file called `alpha_job.pbs`.
+The contents at a minimum, should look something like this.
 
-```  
+```bash
 #!/bin/bash
+
 #PBS -P Training
-#PBS -l select=1:ncpus=4:mem=8gb:ngpus=0
-#PBS -l walltime=00:10:00
-#PBS -N alphafold2_job
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=04:00:00
+#PBS -N job01_gpu
 
-# Load necessary modules 
-(on Artemis, this will load the correct python environment with AlphaFold installed)
-module load alphafold2
+# Load necessary modules (on Artemis, this will load the correct python environment with AlphaFold installed)
+module load alphafold hmmer hh-suite kalign
 
-# Navigate to the AlphaFold2 directory
-cd /project/Training/ALPHAFOLD
+# Navigate to your directory 
+#cd /project/Training/ALPHAFOLD
+cd $PBS_O_WORKDIR
 
-# Run the AlphaFold2 prediction command
-python run_alphafold2.py \
-  --input /project/Training/ALPHAFOLD/input.fasta \
-  --output /path/to/output_directory \
-  --model /project/data/alphafold
-  --parameters /path/to/alphafold2_parameters
+# Set a working directory
+export WORKDIR=`pwd`
 
+# Set the alphafold base database directory
+export ALPHADB=/project/data/alphafold2/20220323
+
+# Run the AlphaFold2 prediction command. Note most database paths are required
+run_alphafold.py \
+        --data_dir=${ALPHADB} \
+        --uniref90_database_path=${ALPHADB}/uniref90/uniref90.fasta \
+        --mgnify_database_path=${ALPHADB}/mgnify/mgy_clusters_2018_12.fa \
+        --template_mmcif_dir=${ALPHADB}/pdb_mmcif/mmcif_files/ \
+        --obsolete_pdbs_path=${ALPHADB}/pdb_mmcif/obsolete.dat \
+        --fasta_paths=/project/Training/DATA/input.fasta \
+        --output_dir=${WORKDIR}/output_directory_gpu \
+        --db_preset=full_dbs \
+        --max_template_date=2022-03-23 \
+        --use_gpu_relax=False \
+        --model_preset=monomer \
+        --pdb70_database_path=${ALPHADB}/pdb70/pdb70 \
+        --bfd_database_path=${ALPHADB}/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \
+        --uniclust30_database_path=${ALPHADB}/uniclust30/uniclust30_2018_08/uniclust30_2018_08
 ```
 
-Now submit the job to the queue
-```
+Now we can submit the job to the queue
+```bash
 qsub alpha_job.pbs
 ```
 
-The search parameters for AlphaFold2 can vary depending on the specific requirements and goals of the protein structure prediction. Here are some typical search parameters that can be adjusted:
+This will execute when compute resources become availble. Check the status with: 
 
-- **Input Sequence:** 
-
-  The input sequence is the protein sequence for which the structure is being predicted. It is usually provided in FASTA format.
-
-- **Model Selection:** 
-  
-  AlphaFold2 offers different models for protein structure prediction. Users can choose the most suitable model based on factors such as speed, accuracy, or specific application requirements.
-
-- **Confidence Threshold:** 
-
-  AlphaFold2 assigns confidence scores to its predictions. Users can set a confidence threshold to filter the predicted structures based on their confidence level. Structures with confidence scores below the threshold may be discarded or further analyzed separately.
-
-- **Template Selection:** 
-
-  AlphaFold2 utilizes known protein structures, called templates, to aid in its predictions. Users can specify the criteria for template selection, such as sequence similarity or structural homology, to guide the prediction process.
-
-- **Energy Minimization:** 
-
-  After generating the initial structure predictions, AlphaFold2 can perform energy minimization to refine the predicted structures. Users can specify the parameters for energy minimization, such as the force field or optimization algorithm.
-
-- **Residue Range:** 
-
-  In some cases, users may want to limit the prediction to a specific range of residues within the protein sequence. This can be useful when focusing on particular regions of interest or dealing with large proteins.
-
-- **Output Format:** 
-
-  AlphaFold2 can provide the predicted structures in various formats, such as PDB (Protein Data Bank) or mmCIF (macromolecular Crystallographic Information File). Users can specify the desired output format based on their downstream analysis or visualization needs.
-<br><br>
-
-These are just a few examples of the typical search parameters that can be adjusted when using AlphaFold2. The specific parameters used will depend on the objectives of the protein structure prediction and the available options provided by the AlphaFold2 software or interface being used.
-
-```
-python run_alphafold2.py \
-  --input input.fasta \
-  --output output_directory \
-  --model alphafold2_model \
-  --parameters alphafold2_parameters \
-  --cpu 4 \
-  --max_template_date 2022-01-01 \
-  --min_covered_residues 0.8 \
-  --max_recursion_depth 3 \
-  --max_hours 0.08
+```bash
+qstat -x -u <unikey>
 ```
 
-In this example:
-
-* `--input input.fasta` specifies the input FASTA file containing the protein sequence to be predicted.
-* `--output output_directory` specifies the directory where the output files will be saved.
-* `--model alphafold2_model points` to the AlphaFold2 model to be used for prediction.
-* `--parameters alphafold2_parameters` specifies the path to the AlphaFold2 parameters.
-* `--cpu $NCPUS` sets the number of CPUs to be used for the prediction to 4.
-* `--max_template_date 2022-01-01` restricts the use of templates that were released before January 1, 2022.
-* `--min_covered_residues` 0.8 specifies that at least 80% of the protein sequence must have template coverage for a template to be used.
-* `--max_recursion_depth 3` limits the recursion depth during template searching to 3.
-* `--max_hours 0.08` sets the maximum runtime for the prediction to 0.08 hours 
+You will see most requirments are on Artemis already, but you must bring your own `.fasta` file.
 
 
 
