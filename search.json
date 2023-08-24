@@ -28,39 +28,32 @@
     "text": "If you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to the PuTTY Website and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n\n\nName this session “Artemis” and click ‘Save’\n\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
   },
   {
+    "objectID": "notebooks/08_biocommons.html",
+    "href": "notebooks/08_biocommons.html",
+    "title": "Running AlphaFold on Biocommons Galaxy",
+    "section": "",
+    "text": "What is the Australian Biocommons?\nWhat is Galaxy Australia?\nHow do I use AlphaFold on Glaxy?\n\n\n\n\n\n\nThe Australian Biocommons is a digital capability aimed at enhancing Australian research in its ability to understand the molecular basis of life across environmental, agricultural and biomedical science.\nGalaxy Australia is an open, web-based platform for accessible, reproducible and transparent computational research.\nhttps://site.usegalaxy.org.au/request/alphafold\nIn https://usegalaxy.org.au/ Navigate to ALphaFold. Fill in the form and click Run Tool!\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "notebooks/08_biocommons.html#biocommons",
+    "href": "notebooks/08_biocommons.html#biocommons",
+    "title": "Running AlphaFold on Biocommons Galaxy",
+    "section": "",
+    "text": "The Australian Biocommons is a digital capability aimed at enhancing Australian research in its ability to understand the molecular basis of life across environmental, agricultural and biomedical science.\nGalaxy Australia is an open, web-based platform for accessible, reproducible and transparent computational research.\nhttps://site.usegalaxy.org.au/request/alphafold\nIn https://usegalaxy.org.au/ Navigate to ALphaFold. Fill in the form and click Run Tool!"
+  },
+  {
+    "objectID": "notebooks/05_nci.html",
+    "href": "notebooks/05_nci.html",
+    "title": "Running AlphaFold on NCI Gadi HPC",
+    "section": "",
+    "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nHow Can I Run AlphaFold on NCI?\n\n\n\n\n\nAlphaFold is availble on NCI’s Gadi. This HPC is more than 10x larger than Artemis, so offers potentially far more significant resources.\nGadi uses a general architechure similar to Artemis so any workflows you have developed can be readily adapted to run on Gadi.\nAlphaFold is documented here: https://opus.nci.org.au/display/Help/Colabfold\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
     "objectID": "notebooks/04_singularity.html",
     "href": "notebooks/04_singularity.html",
     "title": "Running AlphaFold in a Docker/Singularity Container",
     "section": "",
     "text": "What is Docker?\nWhat is Singularity?\nHow do I run AlphaFold in a container?\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/07_colabfold.html",
-    "href": "notebooks/07_colabfold.html",
-    "title": "Running AlphaFold with ColabFold on Google Colab",
-    "section": "",
-    "text": "What is Google Colab and ColabFold?\nHow do I run AlphaFold with ColabFold?\nWhat are the limitations?\n\n\n\n\nGoogle Colab is an online Python Notebook platform. Notebooks powered by reasonable cpu, ram, and gpu resources are available freely, only requiring a Google account. You can run most Python packages and workflows within the Colab environment.\n\n\n\nColabFold is a fork of AlphaFold specifically designed for running on Google Colab resources. It is instantly accessible via Google Colab, or you can run the modified workflow on your own resources.\n\n\n\nGo here and follow the instructions! https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb\nhttps://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb ## What are the limitations?\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/07_colabfold.html#what-is-google-colab",
-    "href": "notebooks/07_colabfold.html#what-is-google-colab",
-    "title": "Running AlphaFold with ColabFold on Google Colab",
-    "section": "",
-    "text": "Google Colab is an online Python Notebook platform. Notebooks powered by reasonable cpu, ram, and gpu resources are available freely, only requiring a Google account. You can run most Python packages and workflows within the Colab environment."
-  },
-  {
-    "objectID": "notebooks/07_colabfold.html#what-is-colabfold",
-    "href": "notebooks/07_colabfold.html#what-is-colabfold",
-    "title": "Running AlphaFold with ColabFold on Google Colab",
-    "section": "",
-    "text": "ColabFold is a fork of AlphaFold specifically designed for running on Google Colab resources. It is instantly accessible via Google Colab, or you can run the modified workflow on your own resources."
-  },
-  {
-    "objectID": "notebooks/07_colabfold.html#how-do-i-run-alphafold-with-colabfold",
-    "href": "notebooks/07_colabfold.html#how-do-i-run-alphafold-with-colabfold",
-    "title": "Running AlphaFold with ColabFold on Google Colab",
-    "section": "",
-    "text": "Go here and follow the instructions! https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb\nhttps://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb ## What are the limitations?"
   },
   {
     "objectID": "notebooks/03_artemis.html",
@@ -77,11 +70,11 @@
     "text": "Make a PBS Jobscript\nMake a new file called alpha_job.pbs. The contents at a minimum, should look something like this.\n#!/bin/bash\n\n#PBS -P Training\n#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1\n#PBS -l walltime=04:00:00\n#PBS -N job01_gpu\n\n# Load necessary modules (on Artemis, this will load the correct python environment with AlphaFold installed)\nmodule load alphafold hmmer hh-suite kalign\n\n# Navigate to your directory \n#cd /project/Training/ALPHAFOLD\ncd $PBS_O_WORKDIR\n\n# Set a working directory\nexport WORKDIR=`pwd`\n\n# Set the alphafold base database directory\nexport ALPHADB=/project/data/alphafold2/20220323\n\n# Run the AlphaFold2 prediction command. Note most database paths are required\nrun_alphafold.py \\\n        --data_dir=${ALPHADB} \\\n        --uniref90_database_path=${ALPHADB}/uniref90/uniref90.fasta \\\n        --mgnify_database_path=${ALPHADB}/mgnify/mgy_clusters_2018_12.fa \\\n        --template_mmcif_dir=${ALPHADB}/pdb_mmcif/mmcif_files/ \\\n        --obsolete_pdbs_path=${ALPHADB}/pdb_mmcif/obsolete.dat \\\n        --fasta_paths=/project/Training/DATA/input.fasta \\\n        --output_dir=${WORKDIR}/output_directory_gpu \\\n        --db_preset=full_dbs \\\n        --max_template_date=2022-03-23 \\\n        --use_gpu_relax=False \\\n        --model_preset=monomer \\\n        --pdb70_database_path=${ALPHADB}/pdb70/pdb70 \\\n        --bfd_database_path=${ALPHADB}/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt \\\n        --uniclust30_database_path=${ALPHADB}/uniclust30/uniclust30_2018_08/uniclust30_2018_08\nNow we can submit the job to the queue\nqsub alpha_job.pbs\nThis will execute when compute resources become availble. Check the status with:\nqstat -x -u &lt;unikey&gt;\nYou will see most requirments are on Artemis already, but you must bring your own .fasta file."
   },
   {
-    "objectID": "notebooks/05_nci.html",
-    "href": "notebooks/05_nci.html",
-    "title": "Running AlphaFold on NCI Gadi HPC",
+    "objectID": "CHEATSHEET.html",
+    "href": "CHEATSHEET.html",
+    "title": "Quarto template cheatsheet",
     "section": "",
-    "text": "Running AlphaFold on NCI Gadi HPC\n\nQuestions\n\nHow Can I Run AlphaFold on NCI?\n\n\n\n\n\nAlphaFold is availble on NCI’s Gadi. This HPC is more than 10x larger than Artemis, so offers potentially far more significant resources.\nGadi uses a general architechure similar to Artemis so any workflows you have developed can be readily adapted to run on Gadi.\nAlphaFold is documented here: https://opus.nci.org.au/display/Help/Colabfold\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+    "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   },
   {
     "objectID": "index.html",
@@ -133,34 +126,6 @@
     "text": "Setup Instructions\nPlease attempt to complete the Setup Instructions before the course. We will run through this in the course too."
   },
   {
-    "objectID": "CHEATSHEET.html",
-    "href": "CHEATSHEET.html",
-    "title": "Quarto template cheatsheet",
-    "section": "",
-    "text": "Quarto template cheatsheet\nPlease contribute your tips, tricks for use, customisation of this template :)\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/06_aws.html",
-    "href": "notebooks/06_aws.html",
-    "title": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)",
-    "section": "",
-    "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nHow can I run AlphaFold on scalable infastrucure?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\nIf you find your workflows do not suit the queued environment of Gadi or Artemis, you may find creating your own computational stack to be most robust and adaptable.\nSydney offers researchers access to the AWS cloud via Ronin. This interface provides an interface for creating and configuirng virtual machines on-demand with as many computational resources as you need for your current workload.\nGenerally, you will start with a barebones virtual machine. You may then install AlphaFold and the corresponding databases as needed:\nhttps://github.com/deepmind/alphafold/tree/main\nhttps://aws.amazon.com/blogs/machine-learning/run-alphafold-v2-0-on-amazon-ec2/\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/08_biocommons.html",
-    "href": "notebooks/08_biocommons.html",
-    "title": "Running AlphaFold on Biocommons Galaxy",
-    "section": "",
-    "text": "What is the Australian Biocommons?\nWhat is Galaxy Australia?\nHow do I use AlphaFold on Glaxy?\n\n\n\n\n\n\nThe Australian Biocommons is a digital capability aimed at enhancing Australian research in its ability to understand the molecular basis of life across environmental, agricultural and biomedical science.\nGalaxy Australia is an open, web-based platform for accessible, reproducible and transparent computational research.\nhttps://site.usegalaxy.org.au/request/alphafold\nIn https://usegalaxy.org.au/ Navigate to ALphaFold. Fill in the form and click Run Tool!\nAll materials copyright Sydney Informatics Hub, University of Sydney"
-  },
-  {
-    "objectID": "notebooks/08_biocommons.html#biocommons",
-    "href": "notebooks/08_biocommons.html#biocommons",
-    "title": "Running AlphaFold on Biocommons Galaxy",
-    "section": "",
-    "text": "The Australian Biocommons is a digital capability aimed at enhancing Australian research in its ability to understand the molecular basis of life across environmental, agricultural and biomedical science.\nGalaxy Australia is an open, web-based platform for accessible, reproducible and transparent computational research.\nhttps://site.usegalaxy.org.au/request/alphafold\nIn https://usegalaxy.org.au/ Navigate to ALphaFold. Fill in the form and click Run Tool!"
-  },
-  {
     "objectID": "notebooks/01_alphafold.html",
     "href": "notebooks/01_alphafold.html",
     "title": "Introduction to AlphaFold",
@@ -208,5 +173,40 @@
     "title": "Introduction to the High Performance Computing",
     "section": "Connecting to Artemis",
     "text": "Connecting to Artemis\nConnections to Artemis are remote connections – you’ll never sit at one of Artemis’ machines, which are stored in a secure data-centre in Western Sydney. Instead, you connect remotely into one of Artemis’ login nodes. Login nodes are Artemis machines that don’t perform any actual computing jobs, but simply provide users with an access gateway to Artemis’ filesystems and the PBS Pro job scheduler.\nYou can thus connect to Artemis from anywhere, requiring only a terminal emulator with an SSH client. (If you’re not on the USyd network (ie off-campus), you’ll also need to connect to the University’s VPN.\nIf you followed the Setup instructions, then you should already have the required software installed. If not, please go do this now!\nOnce you are set up with an ssh client, connect with your unikey credentials with:\nssh abcd123@hpc.sydney.edu.au"
+  },
+  {
+    "objectID": "notebooks/07_colabfold.html",
+    "href": "notebooks/07_colabfold.html",
+    "title": "Running AlphaFold with ColabFold on Google Colab",
+    "section": "",
+    "text": "What is Google Colab and ColabFold?\nHow do I run AlphaFold with ColabFold?\nWhat are the limitations?\n\n\n\n\nGoogle Colab is an online Python Notebook platform. Notebooks powered by reasonable cpu, ram, and gpu resources are available freely, only requiring a Google account. You can run most Python packages and workflows within the Colab environment.\n\n\n\nColabFold is a fork of AlphaFold specifically designed for running on Google Colab resources. It is instantly accessible via Google Colab, or you can run the modified workflow on your own resources.\n\n\n\nGo here and follow the instructions! https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb\nhttps://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb ## What are the limitations?\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "notebooks/07_colabfold.html#what-is-google-colab",
+    "href": "notebooks/07_colabfold.html#what-is-google-colab",
+    "title": "Running AlphaFold with ColabFold on Google Colab",
+    "section": "",
+    "text": "Google Colab is an online Python Notebook platform. Notebooks powered by reasonable cpu, ram, and gpu resources are available freely, only requiring a Google account. You can run most Python packages and workflows within the Colab environment."
+  },
+  {
+    "objectID": "notebooks/07_colabfold.html#what-is-colabfold",
+    "href": "notebooks/07_colabfold.html#what-is-colabfold",
+    "title": "Running AlphaFold with ColabFold on Google Colab",
+    "section": "",
+    "text": "ColabFold is a fork of AlphaFold specifically designed for running on Google Colab resources. It is instantly accessible via Google Colab, or you can run the modified workflow on your own resources."
+  },
+  {
+    "objectID": "notebooks/07_colabfold.html#how-do-i-run-alphafold-with-colabfold",
+    "href": "notebooks/07_colabfold.html#how-do-i-run-alphafold-with-colabfold",
+    "title": "Running AlphaFold with ColabFold on Google Colab",
+    "section": "",
+    "text": "Go here and follow the instructions! https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb\nhttps://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb ## What are the limitations?"
+  },
+  {
+    "objectID": "notebooks/06_aws.html",
+    "href": "notebooks/06_aws.html",
+    "title": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)",
+    "section": "",
+    "text": "Running AlphaFold on the the Sydney Research Cloud (Ronin AWS)\n\nQuestions\n\nHow can I run AlphaFold on scalable infastrucure?\n\n\n\nObjectives\n\nLearn the basic Unix commands\n\n\nIf you find your workflows do not suit the queued environment of Gadi or Artemis, you may find creating your own computational stack to be most robust and adaptable.\nSydney offers researchers access to the AWS cloud via Ronin. This interface provides an interface for creating and configuirng virtual machines on-demand with as many computational resources as you need for your current workload.\nGenerally, you will start with a barebones virtual machine. You may then install AlphaFold and the corresponding databases as needed:\nhttps://github.com/deepmind/alphafold/tree/main\nhttps://aws.amazon.com/blogs/machine-learning/run-alphafold-v2-0-on-amazon-ec2/\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
   }
 ]
