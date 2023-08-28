@@ -53,7 +53,28 @@
     "href": "notebooks/04_singularity.html",
     "title": "Running AlphaFold in a Docker/Singularity Container",
     "section": "",
-    "text": "What is Docker?\nWhat is Singularity?\nHow do I run AlphaFold in a container?\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+    "text": "What is Docker?\nWhat is Singularity?\nHow do I run AlphaFold in a container?\n\n\n\n\nContainers, in general, are a technology that enables the packaging and isolation of applications and their dependencies in a consistent environment. They offer a lightweight and efficient way to deploy software by bundling everything needed to run an application, including its code, runtime, libraries, and settings, into a single package called a container. This approach ensures that the application runs consistently across different environments, from development to production. Containers provide a more lightweight alternative to traditional virtual machines, as they share the host operating system’s kernel, resulting in faster startup times and reduced resource overhead. This technology is widely used to simplify application deployment, improve scalability, and enhance the consistency of software across various systems.\n\n\n\nDocker, in essence, is a sophisticated virtualization solution that streamlines the development and deployment of applications. This is achieved through the encapsulation of an application into a self-contained container. This container comprises not only the application’s code but also its entire assortment of libraries, dependencies, as well as runtime and environmental configurations. This self-contained nature ensures consistent execution across diverse settings, markedly easing the complexities associated with application distribution and execution.\n\n\n\nSingularity is a containerization tool designed with a focus on security and compatibility, particularly in high-performance computing and scientific computing environments. It allows you to encapsulate an application, including its code, libraries, and dependencies, into a single executable image. Unlike Docker, Singularity emphasizes process-level isolation and doesn’t require root privileges to run, making it well-suited for multi-user systems. It’s commonly used for creating self-contained, reproducible environments for complex computations and simulations.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "notebooks/04_singularity.html#containers",
+    "href": "notebooks/04_singularity.html#containers",
+    "title": "Running AlphaFold in a Docker/Singularity Container",
+    "section": "",
+    "text": "Containers, in general, are a technology that enables the packaging and isolation of applications and their dependencies in a consistent environment. They offer a lightweight and efficient way to deploy software by bundling everything needed to run an application, including its code, runtime, libraries, and settings, into a single package called a container. This approach ensures that the application runs consistently across different environments, from development to production. Containers provide a more lightweight alternative to traditional virtual machines, as they share the host operating system’s kernel, resulting in faster startup times and reduced resource overhead. This technology is widely used to simplify application deployment, improve scalability, and enhance the consistency of software across various systems."
+  },
+  {
+    "objectID": "notebooks/04_singularity.html#alphafold-with-docker",
+    "href": "notebooks/04_singularity.html#alphafold-with-docker",
+    "title": "Running AlphaFold in a Docker/Singularity Container",
+    "section": "",
+    "text": "Docker, in essence, is a sophisticated virtualization solution that streamlines the development and deployment of applications. This is achieved through the encapsulation of an application into a self-contained container. This container comprises not only the application’s code but also its entire assortment of libraries, dependencies, as well as runtime and environmental configurations. This self-contained nature ensures consistent execution across diverse settings, markedly easing the complexities associated with application distribution and execution."
+  },
+  {
+    "objectID": "notebooks/04_singularity.html#alphafold-with-singularity",
+    "href": "notebooks/04_singularity.html#alphafold-with-singularity",
+    "title": "Running AlphaFold in a Docker/Singularity Container",
+    "section": "",
+    "text": "Singularity is a containerization tool designed with a focus on security and compatibility, particularly in high-performance computing and scientific computing environments. It allows you to encapsulate an application, including its code, libraries, and dependencies, into a single executable image. Unlike Docker, Singularity emphasizes process-level isolation and doesn’t require root privileges to run, making it well-suited for multi-user systems. It’s commonly used for creating self-contained, reproducible environments for complex computations and simulations."
   },
   {
     "objectID": "notebooks/03_artemis.html",
