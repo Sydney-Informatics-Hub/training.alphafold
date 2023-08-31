@@ -178,7 +178,7 @@ cookieconsent.run({
   <ul class="collapse">
   <li><a href="#manual-database-search" id="toc-manual-database-search" class="nav-link" data-scroll-target="#manual-database-search">Manual Database Search</a></li>
   <li><a href="#automation" id="toc-automation" class="nav-link" data-scroll-target="#automation">Automation</a></li>
-  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
+  <li><a href="#fasta-format" id="toc-fasta-format" class="nav-link" data-scroll-target="#fasta-format">FASTA Format</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -210,19 +210,25 @@ cookieconsent.run({
 <p>It is customisable and allows researchers to fine-tune the prediction process according to their specific requirements. It provides a wide range of command line options and parameters that can be modified to optimise predictions. This level of control is beneficial for researchers who want to experiment with different settings or integrate AlphaFold2 into their existing computational pipelines.</p>
 <p>This course is aimed at researchers seeking to automate their use of AlphaFold. See the following pages for examples for how to use AlphaFold in different conditions and on different systems. Whilst these are targeted for Sydney University researchers, others may benefit from the general routines.</p>
 </section>
-<section id="citations" class="level2">
-<h2 class="anchored" data-anchor-id="citations">Citations</h2>
-<p>If you use the AlphaFold code or data, please cite:</p>
-<pre><code>@Article{AlphaFold2021,
-  author  = {Jumper, John and Evans, Richard and Pritzel, Alexander and Green, Tim and Figurnov, Michael and Ronneberger, Olaf and Tunyasuvunakool, Kathryn and Bates, Russ and {\v{Z}}{\'\i}dek, Augustin and Potapenko, Anna and Bridgland, Alex and Meyer, Clemens and Kohl, Simon A A and Ballard, Andrew J and Cowie, Andrew and Romera-Paredes, Bernardino and Nikolov, Stanislav and Jain, Rishub and Adler, Jonas and Back, Trevor and Petersen, Stig and Reiman, David and Clancy, Ellen and Zielinski, Michal and Steinegger, Martin and Pacholska, Michalina and Berghammer, Tamas and Bodenstein, Sebastian and Silver, David and Vinyals, Oriol and Senior, Andrew W and Kavukcuoglu, Koray and Kohli, Pushmeet and Hassabis, Demis},
-  journal = {Nature},
-  title   = {Highly accurate protein structure prediction with {AlphaFold}},
-  year    = {2021},
-  volume  = {596},
-  number  = {7873},
-  pages   = {583--589},
-  doi     = {10.1038/s41586-021-03819-2}
-}</code></pre>
+<section id="fasta-format" class="level2">
+<h2 class="anchored" data-anchor-id="fasta-format">FASTA Format</h2>
+<p>AlphaFold is mostly driven by the use of <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA files</a>.</p>
+<p>A FASTA (pronounced “fast-ay”) file is a common plain text format used to store biological sequence data, such as DNA, RNA, or protein sequences. It is named after the FASTA software package, which originally introduced this format. FASTA files consist of two main components:</p>
+<p>Header: The header line begins with a “&gt;” symbol, followed by a unique identifier for the sequence. This identifier can contain information about the sequence, like its source or other relevant details.</p>
+<p>Sequence Data: The following lines contain the actual sequence data, which can be composed of letters representing nucleotides (A, T, C, G, U) for DNA, RNA sequences or amino acids (A, R, N, etc.) for protein sequences.</p>
+<p>Fro example:</p>
+<pre><code>```
+&gt;MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken</code></pre>
+<p>MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA DIDGDGQVNYEEFVQMMTAK*</p>
+<pre><code>
+FASTA files are easy to read by both humans and computers, making them a standard format for sharing and storing biological sequence information. They are used in various bioinformatics applications, including sequence analysis, sequence alignment, database searches, and data exchange between different software tools and databases.
+
+
+## Citations
+
+If you use the AlphaFold code or data, please cite:
+</code></pre>
+<p><span class="citation" data-cites="Article">@Article</span>{AlphaFold2021, author = {Jumper, John and Evans, Richard and Pritzel, Alexander and Green, Tim and Figurnov, Michael and Ronneberger, Olaf and Tunyasuvunakool, Kathryn and Bates, Russ and {}{'}dek, Augustin and Potapenko, Anna and Bridgland, Alex and Meyer, Clemens and Kohl, Simon A A and Ballard, Andrew J and Cowie, Andrew and Romera-Paredes, Bernardino and Nikolov, Stanislav and Jain, Rishub and Adler, Jonas and Back, Trevor and Petersen, Stig and Reiman, David and Clancy, Ellen and Zielinski, Michal and Steinegger, Martin and Pacholska, Michalina and Berghammer, Tamas and Bodenstein, Sebastian and Silver, David and Vinyals, Oriol and Senior, Andrew W and Kavukcuoglu, Koray and Kohli, Pushmeet and Hassabis, Demis}, journal = {Nature}, title = {Highly accurate protein structure prediction with {AlphaFold}}, year = {2021}, volume = {596}, number = {7873}, pages = {583–589}, doi = {10.1038/s41586-021-03819-2} } ```</p>
 
 
 </section>

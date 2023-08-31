@@ -210,8 +210,11 @@ cookieconsent.run({
   <ul>
   <li><a href="#running-alphafold-on-the-artemis-hpc" id="toc-running-alphafold-on-the-artemis-hpc" class="nav-link active" data-scroll-target="#running-alphafold-on-the-artemis-hpc">Running AlphaFold on the Artemis HPC</a>
   <ul class="collapse">
-  <li><a href="#how-do-i-run-alphafold-on-artemis" id="toc-how-do-i-run-alphafold-on-artemis" class="nav-link" data-scroll-target="#how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</a></li>
+  <li><a href="#alphafold-on-artemis" id="toc-alphafold-on-artemis" class="nav-link" data-scroll-target="#alphafold-on-artemis">AlphaFold on Artemis</a>
+  <ul class="collapse">
   <li><a href="#make-a-pbs-jobscript" id="toc-make-a-pbs-jobscript" class="nav-link" data-scroll-target="#make-a-pbs-jobscript">Make a PBS Jobscript</a></li>
+  <li><a href="#submit-a-pbs-jobscript-to-the-queue" id="toc-submit-a-pbs-jobscript-to-the-queue" class="nav-link" data-scroll-target="#submit-a-pbs-jobscript-to-the-queue">Submit a PBS Jobscript to the queue</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -223,15 +226,14 @@ cookieconsent.run({
 
 <section id="running-alphafold-on-the-artemis-hpc" class="level1">
 <h1>Running AlphaFold on the Artemis HPC</h1>
-<section id="how-do-i-run-alphafold-on-artemis" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</h2>
+<section id="alphafold-on-artemis" class="level2">
+<h2 class="anchored" data-anchor-id="alphafold-on-artemis">AlphaFold on Artemis</h2>
 <p>AlphaFold can be accessed by executing</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are several (large) required genetic databases and parameters AlphaFold requires. Different versions of these are conveniently available on Artemis in the common folder: <code>/project/data/alphafold2/</code> If there is additional databases you require, please fill in a <a href="https://sydneyuni.service-now.com/sm?id=sc_cat_item&amp;sys_id=1ab0bb626d2935008dd31a4dcf150a21&amp;sysparm_category=56db92a0db1f73042d38cae43a961918">support ticket</a>.</p>
-<p>To actually run a computationally intensive AlphaFold job, we must create a PBS “jobscript”, which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution.</p>
-</section>
-<section id="make-a-pbs-jobscript" class="level2">
-<h2 class="anchored" data-anchor-id="make-a-pbs-jobscript">Make a PBS Jobscript</h2>
+<p>There are several (large) genetic databases and parameters AlphaFold requires. Different versions of these are conveniently available on Artemis in the common folder: <code>/project/data/alphafold2/</code> If there is additional databases you require, please fill in a <a href="https://sydneyuni.service-now.com/sm?id=sc_cat_item&amp;sys_id=1ab0bb626d2935008dd31a4dcf150a21&amp;sysparm_category=56db92a0db1f73042d38cae43a961918">support ticket</a>.</p>
+<p>To actually run a computationally intensive AlphaFold job, we must create a PBS <em>jobscript</em>, which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution.</p>
+<section id="make-a-pbs-jobscript" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-pbs-jobscript">Make a PBS Jobscript</h3>
 <p>Make a new file called <code>alpha_job.pbs</code>. Execute <code>nano alpha_job.pbs</code> to edit a new text file in the <code>nano</code> text-editor. Make the changes then hit <code>cntrl+x</code> to exit the <code>nano</code> text-editor, save the changes as prompted.</p>
 <p>The contents at a minimum, should look something like this.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
@@ -245,38 +247,41 @@ cookieconsent.run({
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold/2.2.0-gpu hmmer hh-suite kalign</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your directory</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#cd /project/Training/ALPHAFOLD</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a working directory</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">WORKDIR</span><span class="op">=</span><span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the alphafold base database directory</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ALPHADB</span><span class="op">=</span>/project/data/alphafold2/20220323</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the AlphaFold2 prediction command. Note most database paths are required</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">run_alphafold.py</span> <span class="dt">\</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">--data_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span> <span class="dt">\</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniref90_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniref90/uniref90.fasta <span class="dt">\</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">--mgnify_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/mgnify/mgy_clusters_2018_12.fa <span class="dt">\</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">--template_mmcif_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/mmcif_files/ <span class="dt">\</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">--obsolete_pdbs_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/obsolete.dat <span class="dt">\</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">--fasta_paths</span><span class="op">=</span>/project/Training/DATA/input.fasta <span class="dt">\</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">--output_dir</span><span class="op">=</span><span class="va">${WORKDIR}</span>/output_directory_gpu <span class="dt">\</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">--db_preset</span><span class="op">=</span>full_dbs <span class="dt">\</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">--max_template_date</span><span class="op">=</span>2022-03-23 <span class="dt">\</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">--use_gpu_relax</span><span class="op">=</span>False <span class="dt">\</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">--model_preset</span><span class="op">=</span>monomer <span class="dt">\</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">--pdb70_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb70/pdb70 <span class="dt">\</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">--bfd_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt <span class="dt">\</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniclust30_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniclust30/uniclust30_2018_08/uniclust30_2018_08</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now we can submit the job to the queue</p>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a working directory</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">WORKDIR</span><span class="op">=</span><span class="kw">`</span><span class="bu">pwd</span><span class="kw">`</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the alphafold base database directory</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ALPHADB</span><span class="op">=</span>/project/data/alphafold2/20220323</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the AlphaFold2 prediction command. Note most database paths are required</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">run_alphafold.py</span> <span class="dt">\</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">--data_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span> <span class="dt">\</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniref90_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniref90/uniref90.fasta <span class="dt">\</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">--mgnify_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/mgnify/mgy_clusters_2018_12.fa <span class="dt">\</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">--template_mmcif_dir</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/mmcif_files/ <span class="dt">\</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">--obsolete_pdbs_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb_mmcif/obsolete.dat <span class="dt">\</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">--fasta_paths</span><span class="op">=</span>/project/Training/DATA/input.fasta <span class="dt">\</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">--output_dir</span><span class="op">=</span><span class="va">${WORKDIR}</span>/output_directory_gpu <span class="dt">\</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">--db_preset</span><span class="op">=</span>full_dbs <span class="dt">\</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">--max_template_date</span><span class="op">=</span>2022-03-23 <span class="dt">\</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">--use_gpu_relax</span><span class="op">=</span>False <span class="dt">\</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">--model_preset</span><span class="op">=</span>monomer <span class="dt">\</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">--pdb70_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/pdb70/pdb70 <span class="dt">\</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">--bfd_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt <span class="dt">\</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniclust30_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniclust30/uniclust30_2018_08/uniclust30_2018_08</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="submit-a-pbs-jobscript-to-the-queue" class="level3">
+<h3 class="anchored" data-anchor-id="submit-a-pbs-jobscript-to-the-queue">Submit a PBS Jobscript to the queue</h3>
+<p>Now we can submit the job to the scheduler</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qsub</span> alpha_job.pbs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will execute when compute resources become available. Check the status with:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qstat</span> <span class="at">-x</span> <span class="at">-u</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You will see most requirements are on Artemis already, but you must bring your own <code>.fasta</code> file.</p>
 
 
+</section>
 </section>
 </section>
 

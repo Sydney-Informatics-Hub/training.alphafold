@@ -208,10 +208,7 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-the-high-performance-computing" id="toc-introduction-to-the-high-performance-computing" class="nav-link active" data-scroll-target="#introduction-to-the-high-performance-computing">Introduction to the High Performance Computing</a>
-  <ul class="collapse">
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  </ul></li>
+  <li><a href="#introduction-to-the-high-performance-computing" id="toc-introduction-to-the-high-performance-computing" class="nav-link active" data-scroll-target="#introduction-to-the-high-performance-computing">Introduction to the High Performance Computing</a></li>
   <li><a href="#what-is-the-artemis-hpc" id="toc-what-is-the-artemis-hpc" class="nav-link" data-scroll-target="#what-is-the-artemis-hpc">What is the Artemis HPC?</a>
   <ul class="collapse">
   <li><a href="#getting-an-artemis-account" id="toc-getting-an-artemis-account" class="nav-link" data-scroll-target="#getting-an-artemis-account">Getting an Artemis Account</a></li>
@@ -227,13 +224,6 @@ cookieconsent.run({
 
 <section id="introduction-to-the-high-performance-computing" class="level1">
 <h1>Introduction to the High Performance Computing</h1>
-<section id="questions" class="level3 questions">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
-<ul>
-<li>What is a HPC?</li>
-<li>Why can’t I run alphafold locally?</li>
-</ul>
-</section>
 </section>
 <section id="what-is-the-artemis-hpc" class="level1">
 <h1>What is the Artemis HPC?</h1>
@@ -257,12 +247,13 @@ cookieconsent.run({
 <h2 class="anchored" data-anchor-id="getting-an-artemis-account">Getting an Artemis Account</h2>
 <p>Get an Artemis account by creating a project with Artemis HPC access in <a href="https://dashr.sydney.edu.au/">Researcher Dashboard (DashR)</a>.</p>
 <p>Artemis is available free of charge to all University of Sydney researchers. You only need a unikey, and a valid Research Dashboard Research Data Management Plan with Artemis access enabled.</p>
+<p>During the course you can be issued with an account belonging to the <em>Training</em> project.</p>
 </section>
 <section id="connecting-to-artemis" class="level2">
 <h2 class="anchored" data-anchor-id="connecting-to-artemis">Connecting to Artemis</h2>
 <p>Connections to Artemis are remote connections – you’ll never sit at one of Artemis’ machines, which are stored in a secure data-centre in Western Sydney. Instead, you connect remotely into one of Artemis’ login nodes. Login nodes are Artemis machines that don’t perform any actual computing jobs, but simply provide users with an access gateway to Artemis’ filesystems and the PBS Pro job scheduler.</p>
 <p>You can thus connect to Artemis from anywhere, requiring only a terminal emulator with an SSH client. (If you’re not on the USyd network (ie off-campus), you’ll also need to connect to the University’s VPN.</p>
-<p>If you followed the <a href="https://sydney-informatics-hub.github.io/training.alphafold/setup.html">Setup instructions</a>, then you should already have the required software installed. If not, please go do this now!</p>
+<p>If you followed the <a href="https://sydney-informatics-hub.github.io/training.alphafold/setup.html">Setup instructions</a>, then you should already have the required software installed.</p>
 <p>Once you are set up with an ssh client, connect with your unikey credentials with:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> abcd123@hpc.sydney.edu.au</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
