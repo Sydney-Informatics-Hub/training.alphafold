@@ -179,6 +179,8 @@ cookieconsent.run({
   <li><a href="#manual-database-search" id="toc-manual-database-search" class="nav-link" data-scroll-target="#manual-database-search">Manual Database Search</a></li>
   <li><a href="#automation" id="toc-automation" class="nav-link" data-scroll-target="#automation">Automation</a></li>
   <li><a href="#fasta-format" id="toc-fasta-format" class="nav-link" data-scroll-target="#fasta-format">FASTA Format</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use cases</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -217,18 +219,38 @@ cookieconsent.run({
 <p>Header: The header line begins with a “&gt;” symbol, followed by a unique identifier for the sequence. This identifier can contain information about the sequence, like its source or other relevant details.</p>
 <p>Sequence Data: The following lines contain the actual sequence data, which can be composed of letters representing nucleotides (A, T, C, G, U) for DNA, RNA sequences or amino acids (A, R, N, etc.) for protein sequences.</p>
 <p>Fro example:</p>
-<pre><code>```
-&gt;MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken</code></pre>
-<p>MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA DIDGDGQVNYEEFVQMMTAK*</p>
-<pre><code>
-FASTA files are easy to read by both humans and computers, making them a standard format for sharing and storing biological sequence information. They are used in various bioinformatics applications, including sequence analysis, sequence alignment, database searches, and data exchange between different software tools and databases.
-
-
-## Citations
-
-If you use the AlphaFold code or data, please cite:
-</code></pre>
-<p><span class="citation" data-cites="Article">@Article</span>{AlphaFold2021, author = {Jumper, John and Evans, Richard and Pritzel, Alexander and Green, Tim and Figurnov, Michael and Ronneberger, Olaf and Tunyasuvunakool, Kathryn and Bates, Russ and {}{'}dek, Augustin and Potapenko, Anna and Bridgland, Alex and Meyer, Clemens and Kohl, Simon A A and Ballard, Andrew J and Cowie, Andrew and Romera-Paredes, Bernardino and Nikolov, Stanislav and Jain, Rishub and Adler, Jonas and Back, Trevor and Petersen, Stig and Reiman, David and Clancy, Ellen and Zielinski, Michal and Steinegger, Martin and Pacholska, Michalina and Berghammer, Tamas and Bodenstein, Sebastian and Silver, David and Vinyals, Oriol and Senior, Andrew W and Kavukcuoglu, Koray and Kohli, Pushmeet and Hassabis, Demis}, journal = {Nature}, title = {Highly accurate protein structure prediction with {AlphaFold}}, year = {2021}, volume = {596}, number = {7873}, pages = {583–589}, doi = {10.1038/s41586-021-03819-2} } ```</p>
+<pre><code>&gt;MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken
+MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA
+DIDGDGQVNYEEFVQMMTAK*</code></pre>
+<p>FASTA files are easy to read by both humans and computers, making them a standard format for sharing and storing biological sequence information. They are used in various bioinformatics applications, including sequence analysis, sequence alignment, database searches, and data exchange between different software tools and databases.</p>
+</section>
+<section id="use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases">Use cases</h2>
+<ul>
+<li><p>Protein Structure Prediction: Understanding the 3D structure of proteins is crucial because a protein’s function is intricately linked to its shape. By accurately predicting protein structures, researchers can gain insights into their functions, interactions, and potential roles in various biological processes.</p></li>
+<li><p>Drug Discovery: Many diseases are caused by malfunctioning proteins. With accurate protein structure predictions, researchers can identify potential drug targets and design molecules that specifically interact with the target protein, leading to the development of new drugs and therapies.</p></li>
+<li><p>Biological Research: AlphaFold aids researchers in studying the underlying mechanisms of biological processes. Protein structures provide insights into how proteins function, interact with other molecules, and carry out their roles in cells.</p></li>
+<li><p>Disease Understanding: Knowing the structures of proteins associated with diseases helps researchers understand how these proteins contribute to the disease’s development. This understanding can pave the way for novel therapeutic approaches.</p></li>
+<li><p>Engineering and Design: AlphaFold can assist in protein engineering by designing proteins with specific functions or properties, such as creating enzymes with improved catalytic activities or generating novel protein structures for industrial applications.</p></li>
+<li><p>Bioinformatics and Data Interpretation: AlphaFold’s predictions can complement experimental data, helping researchers interpret experimental results and guiding further experiments. It can provide structural context to help explain biochemical and genetic observations.</p></li>
+<li><p>Functional Annotations: Predicting protein structures can aid in annotating the functions of newly sequenced genes and proteins, especially when experimental data is limited.</p></li>
+<li><p>Reducing Experimental Costs: Determining protein structures experimentally using methods like X-ray crystallography or nuclear magnetic resonance (NMR) can be time-consuming and expensive. AlphaFold’s predictions can provide a cost-effective alternative to obtaining initial structural information.</p></li>
+</ul>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<p>If you use the AlphaFold code or data, please cite:</p>
+<pre><code>@Article{AlphaFold2021,
+  author  = {Jumper, John and Evans, Richard and Pritzel, Alexander and Green, Tim and Figurnov, Michael and Ronneberger, Olaf and Tunyasuvunakool, Kathryn and Bates, Russ and {\v{Z}}{\'\i}dek, Augustin and Potapenko, Anna and Bridgland, Alex and Meyer, Clemens and Kohl, Simon A A and Ballard, Andrew J and Cowie, Andrew and Romera-Paredes, Bernardino and Nikolov, Stanislav and Jain, Rishub and Adler, Jonas and Back, Trevor and Petersen, Stig and Reiman, David and Clancy, Ellen and Zielinski, Michal and Steinegger, Martin and Pacholska, Michalina and Berghammer, Tamas and Bodenstein, Sebastian and Silver, David and Vinyals, Oriol and Senior, Andrew W and Kavukcuoglu, Koray and Kohli, Pushmeet and Hassabis, Demis},
+  journal = {Nature},
+  title   = {Highly accurate protein structure prediction with {AlphaFold}},
+  year    = {2021},
+  volume  = {596},
+  number  = {7873},
+  pages   = {583--589},
+  doi     = {10.1038/s41586-021-03819-2}
+}</code></pre>
 
 
 </section>
