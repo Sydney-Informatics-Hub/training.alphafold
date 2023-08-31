@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -95,9 +97,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TNWWV3HK57"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TNWWV3HK57', { 'anonymize_ip': true});
+</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":"",
+"website_privacy_policy_url":"https://www.sydney.edu.au/privacy-statement.html"
+  });
+});
+</script> 
+  
 
 
-<link rel="stylesheet" href="styles.scss">
 </head>
 
 <body class="nav-fixed">
@@ -183,10 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#running-alphafold-on-the-artemis-hpc" id="toc-running-alphafold-on-the-artemis-hpc" class="nav-link active" data-scroll-target="#running-alphafold-on-the-artemis-hpc">Running AlphaFold on the Artemis HPC</a>
   <ul class="collapse">
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  </ul></li>
-  <li><a href="#how-do-i-run-alphafold-on-artemis" id="toc-how-do-i-run-alphafold-on-artemis" class="nav-link" data-scroll-target="#how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</a>
-  <ul class="collapse">
+  <li><a href="#how-do-i-run-alphafold-on-artemis" id="toc-how-do-i-run-alphafold-on-artemis" class="nav-link" data-scroll-target="#how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</a></li>
   <li><a href="#make-a-pbs-jobscript" id="toc-make-a-pbs-jobscript" class="nav-link" data-scroll-target="#make-a-pbs-jobscript">Make a PBS Jobscript</a></li>
   </ul></li>
   </ul>
@@ -199,23 +223,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="running-alphafold-on-the-artemis-hpc" class="level1">
 <h1>Running AlphaFold on the Artemis HPC</h1>
-<section id="questions" class="level3 questions">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
-<ul>
-<li>How do I run AlphaFold on Artemis?</li>
-<li>How can I modify a template AlphaFold job?</li>
-</ul>
-</section>
-</section>
-<section id="how-do-i-run-alphafold-on-artemis" class="level1">
-<h1>How do I run AlphaFold on Artemis?</h1>
+<section id="how-do-i-run-alphafold-on-artemis" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-run-alphafold-on-artemis">How do I run AlphaFold on Artemis?</h2>
 <p>AlphaFold can be accessed by executing</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are several (large) required genetic databases and parameters AlphaFold requires. Different versions of these are conviently available on Artemis in the common folder: <code>/project/data/alphafold2/</code> If there is additional databases you require, please fill in a <a href="https://sydneyuni.service-now.com/sm?id=sc_cat_item&amp;sys_id=1ab0bb626d2935008dd31a4dcf150a21&amp;sysparm_category=56db92a0db1f73042d38cae43a961918">support ticket</a>.</p>
+<p>There are several (large) required genetic databases and parameters AlphaFold requires. Different versions of these are conveniently available on Artemis in the common folder: <code>/project/data/alphafold2/</code> If there is additional databases you require, please fill in a <a href="https://sydneyuni.service-now.com/sm?id=sc_cat_item&amp;sys_id=1ab0bb626d2935008dd31a4dcf150a21&amp;sysparm_category=56db92a0db1f73042d38cae43a961918">support ticket</a>.</p>
 <p>To actually run a computationally intensive AlphaFold job, we must create a PBS “jobscript”, which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution.</p>
+</section>
 <section id="make-a-pbs-jobscript" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-pbs-jobscript">Make a PBS Jobscript</h2>
-<p>Make a new file called <code>alpha_job.pbs</code>. The contents at a minimum, should look something like this.</p>
+<p>Make a new file called <code>alpha_job.pbs</code>. Execute <code>nano alpha_job.pbs</code> to edit a new text file in the <code>nano</code> text-editor. Make the changes then hit <code>cntrl+x</code> to exit the <code>nano</code> text-editor, save the changes as prompted.</p>
+<p>The contents at a minimum, should look something like this.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -P Training</span></span>
@@ -224,9 +242,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N job01_gpu</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary modules (on Artemis, this will load the correct python environment with AlphaFold installed)</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold hmmer hh-suite kalign</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load alphafold/2.2.0-gpu hmmer hh-suite kalign</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your directory </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your directory</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#cd /project/Training/ALPHAFOLD</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -254,9 +272,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">--uniclust30_database_path</span><span class="op">=</span><span class="va">${ALPHADB}</span>/uniclust30/uniclust30_2018_08/uniclust30_2018_08</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we can submit the job to the queue</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qsub</span> alpha_job.pbs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will execute when compute resources become availble. Check the status with:</p>
+<p>This will execute when compute resources become available. Check the status with:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qstat</span> <span class="at">-x</span> <span class="at">-u</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You will see most requirments are on Artemis already, but you must bring your own <code>.fasta</code> file.</p>
+<p>You will see most requirements are on Artemis already, but you must bring your own <code>.fasta</code> file.</p>
 
 
 </section>
@@ -612,6 +630,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
