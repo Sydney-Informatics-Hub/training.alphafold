@@ -208,7 +208,8 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#get-a-shell-terminal-emulator" id="toc-get-a-shell-terminal-emulator" class="nav-link active" data-scroll-target="#get-a-shell-terminal-emulator">1. Get a shell terminal emulator</a>
+  <li><a href="#get-a-google-account." id="toc-get-a-google-account." class="nav-link active" data-scroll-target="#get-a-google-account.">1. Get a Google Account.</a></li>
+  <li><a href="#get-a-shell-terminal-emulator" id="toc-get-a-shell-terminal-emulator" class="nav-link" data-scroll-target="#get-a-shell-terminal-emulator">2. Get a shell terminal emulator</a>
   <ul class="collapse">
   <li><a href="#a.-linux-systems" id="toc-a.-linux-systems" class="nav-link" data-scroll-target="#a.-linux-systems">A. Linux systems</a></li>
   <li><a href="#b.-osx-mac-computers-and-laptops" id="toc-b.-osx-mac-computers-and-laptops" class="nav-link" data-scroll-target="#b.-osx-mac-computers-and-laptops">B. OSX (Mac computers and laptops)</a></li>
@@ -242,12 +243,16 @@ cookieconsent.run({
 
 </header>
 
+<section id="get-a-google-account." class="level1">
+<h1>1. Get a Google Account.</h1>
+<p>We will be utilising <a href="https://colab.research.google.com/">Google Colab</a>, you will need a google account to use this service.</p>
+</section>
 <section id="get-a-shell-terminal-emulator" class="level1">
-<h1>1. Get a shell terminal emulator</h1>
+<h1>2. Get a shell terminal emulator</h1>
 <p>To connect to Artemis HPC, and follow this lesson, you will need a <strong>‘terminal emulator’</strong> program installed on your computer. Often just called a ‘terminal’, or ‘shell terminal’, ‘shell client’, terminal emulators give you a window with a <em>command line interface</em> through which you can send commands to be executed by your computer.</p>
 <section id="a.-linux-systems" class="level2">
 <h2 class="anchored" data-anchor-id="a.-linux-systems">A. Linux systems</h2>
-<p>If you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!</p>
+<p>If you use Linux, then chances are you already have a shell. Open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs.</p>
 <p>Connection to Artemis can be made via ssh by issuing the following command on the shell:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-X</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@hpc.sydney.edu.au</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -267,10 +272,10 @@ cookieconsent.run({
 </section>
 <section id="c.-windows" class="level2">
 <h2 class="anchored" data-anchor-id="c.-windows">C. Windows</h2>
-<p>If you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an <em>SSH</em> implementation. To use Artemis on Windows, you have a couple of options:</p>
+<p>Windows has a couple of terminal programs and shells buried in the Programs menu (<code>cmd</code>, <code>powershell</code>). However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an <em>SSH</em> implementation. To use Artemis on Windows, you have a couple of options:</p>
 <section id="i.-putty-easy" class="level3">
 <h3 class="anchored" data-anchor-id="i.-putty-easy">i. PuTTY (Easy)</h3>
-<p>PuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY <strong>does not</strong> provide an X11 server, so you won’t be able to use GUI programs on Artemis with <em>just</em> PuTTY.</p>
+<p>PuTTY, an SSH and telnet client, is a good simple option.</p>
 <p>Head to the <a href="https://putty.org">PuTTY Website</a> and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:</p>
 <ol type="1">
 <li>Fill in the connection details:</li>
@@ -284,6 +289,7 @@ cookieconsent.run({
 <ol start="2" type="1">
 <li>Name this session <strong>“Artemis”</strong> and click ‘Save’</li>
 </ol>
+<p>Note that PuTTY does not provide an X11 server natievly, so you won’t be able to use GUI programs on Artemis with <em>just</em> PuTTY. You can optionally install <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> or similar to enable X-11 forwarding).</p>
 </section>
 <section id="ii.-wsl-and-ubuntu-advanced" class="level3">
 <h3 class="anchored" data-anchor-id="ii.-wsl-and-ubuntu-advanced">ii. WSL and Ubuntu (Advanced)</h3>

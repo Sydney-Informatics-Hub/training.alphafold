@@ -4,28 +4,28 @@
     "href": "setup.html",
     "title": "Setup",
     "section": "",
-    "text": "To connect to Artemis HPC, and follow this lesson, you will need a ‘terminal emulator’ program installed on your computer. Often just called a ‘terminal’, or ‘shell terminal’, ‘shell client’, terminal emulators give you a window with a command line interface through which you can send commands to be executed by your computer.\n\n\nIf you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au\n\n\n\nMac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au\n\n\n\nIf you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to the PuTTY Website and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n\n\nName this session “Artemis” and click ‘Save’\n\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
+    "text": "We will be utilising Google Colab, you will need a google account to use this service."
   },
   {
     "objectID": "setup.html#a.-linux-systems",
     "href": "setup.html#a.-linux-systems",
     "title": "Setup",
-    "section": "",
-    "text": "If you use Linux, then chances are you already know your shell and how to use it. Basically, just open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs; again, if you’re using Linux you probably have one, and if you don’t have one, it’s probably because you intentionally disabled it!\nConnection to Artemis can be made via ssh by issuing the following command on the shell:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au"
+    "section": "A. Linux systems",
+    "text": "A. Linux systems\nIf you use Linux, then chances are you already have a shell. Open your preferred terminal program and off you go! An X-Window server (X11) may also be useful if you want to be able to use GUIs.\nConnection to Artemis can be made via ssh by issuing the following command on the shell:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au"
   },
   {
     "objectID": "setup.html#b.-osx-mac-computers-and-laptops",
     "href": "setup.html#b.-osx-mac-computers-and-laptops",
     "title": "Setup",
-    "section": "",
-    "text": "Mac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au"
+    "section": "B. OSX (Mac computers and laptops)",
+    "text": "B. OSX (Mac computers and laptops)\nMac operating systems come with a terminal program, called Terminal. Just look for it in your Applications folder, or hit Command-Space and type ‘terminal’.\n\n\n\nTerminal is OSX’s native terminal emulator.\n\n\n\nWe also recommend installing XQuartz, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.\nConnection to Artemis can be made via ssh by issuing the following command in the terminal:\nssh -X &lt;unikey&gt;@hpc.sydney.edu.au"
   },
   {
     "objectID": "setup.html#c.-windows",
     "href": "setup.html#c.-windows",
     "title": "Setup",
-    "section": "",
-    "text": "If you’re using a Windows machine, don’t panic! You might not have used ‘CMD’ since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu. However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\n\nPuTTY, an SSH and telnet client, is another good simple option. However, note that PuTTY does not provide an X11 server, so you won’t be able to use GUI programs on Artemis with just PuTTY.\nHead to the PuTTY Website and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n\n\nName this session “Artemis” and click ‘Save’\n\n\n\n\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
+    "section": "C. Windows",
+    "text": "C. Windows\nWindows has a couple of terminal programs and shells buried in the Programs menu (cmd, powershell). However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an SSH implementation. To use Artemis on Windows, you have a couple of options:\n\ni. PuTTY (Easy)\nPuTTY, an SSH and telnet client, is a good simple option.\nHead to the PuTTY Website and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:\n\nFill in the connection details:\n\n\nHost Name: hpc.sydney.edu.au\nPort: 22\nConnection type: SSH\n\n\n\nName this session “Artemis” and click ‘Save’\n\nNote that PuTTY does not provide an X11 server natievly, so you won’t be able to use GUI programs on Artemis with just PuTTY. You can optionally install VcXsrv or similar to enable X-11 forwarding).\n\n\nii. WSL and Ubuntu (Advanced)\nInstall Ubuntu or some other Linux distro on the Windows Subsystem for Linux see here for details. This one will give you the full suite of Linux functions."
   },
   {
     "objectID": "notebooks/08_biocommons.html",
@@ -123,14 +123,14 @@
     "href": "index.html",
     "title": "AlphaFold",
     "section": "",
-    "text": "This is a training course aimed at users wishing to use High Performance Computing and Cloud environments to learn AlphaFold. AlphaFold performs predictions of protein structure."
+    "text": "This is a training course aimed at users wanting to learn about AlphaFold to perform predictions of protein structures. Beyond an introduction to the capabilities of AlphaFold, topics will cover different techincal approaches to run AlphaFold including using High Performance Computing and Cloud environments."
   },
   {
     "objectID": "index.html#trainers",
     "href": "index.html#trainers",
     "title": "AlphaFold",
     "section": "Trainers",
-    "text": "Trainers\nHave a list of the people delivering the course if it is needed. However, this is subject to change so might be a good idea to not specifiy.\nHere’s an example list. This is a good place to define what your preferred name is if you have one.\n\nChristopher Le\nJake Chen\nNathaniel (Nate) Butterworth"
+    "text": "Trainers\n\nChristopher Le\nJake Chen FMH\nNathaniel Butterworth SIH"
   },
   {
     "objectID": "index.html#course-pre-requisites-and-setup-requirements",
@@ -144,7 +144,7 @@
     "href": "index.html#venue",
     "title": "AlphaFold",
     "section": "Venue",
-    "text": "Venue\nTBD, online? In almost all cases, our courses are delivered from Sydney and times are reported in AEST (GMT+10).\n\nZoom etiquette and how we interact\nSessions will be recorded and added to this page. Please interrupt whenever you want! Ideally, have your camera on and interact as much as possible. There will be someone monitoring the chat-window for any questions you would like to post there. Extending for a three-hour duration, our Zoom session incorporates regular breaks and a blend of demonstrative and hands-on material."
+    "text": "Venue\nOnline via Zoom, a link will be shared with registered participants.\n\nZoom etiquette and how we interact\nSessions will be recorded and added to this page. Please interrupt whenever you want! Ideally, have your camera on and interact as much as possible. There will be someone monitoring the chat-window for any questions you would like to post there. Extending for a three-hour duration, our Zoom session incorporates regular breaks and a blend of demonstrative and hands-on material."
   },
   {
     "objectID": "index.html#code-of-conduct",
@@ -158,7 +158,7 @@
     "href": "index.html#schedule",
     "title": "AlphaFold",
     "section": "Schedule",
-    "text": "Schedule\nIf your training includes multiple components, it is always nice to have a table with the schedule. With quarto we can make tables using markdown formating, like below.\n\n\n\nIntro\n\n\n\n\nIntro to AlphaFold\n\n\n\nIntro to HPC\n\n\n\nArtemis Example\n\n\nAdvanced\n\n\n\n\nSingularity Example\n\n\n\nNCI Example\n\n\n\nRonin Research Cloud (AWS) Example\n\n\n\nColabFold\n\n\n\nBiocommons Example"
+    "text": "Schedule\nIf your training includes multiple components, it is always nice to have a table with the schedule. With quarto we can make tables using markdown formating, like below.\n\n\n\nIn-depth\n\n\n\n\nIntro to AlphaFold\n\n\n\nColabFold\n\n\n\nIntro to HPC\n\n\n\nArtemis Example\n\n\nOptional Topics\n\n\n\n\nSingularity Example\n\n\n\nNCI Example\n\n\n\nRonin Research Cloud (AWS) Example\n\n\n\nBiocommons Example"
   },
   {
     "objectID": "index.html#setup-instructions",
