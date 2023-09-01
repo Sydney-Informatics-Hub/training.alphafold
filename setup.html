@@ -162,6 +162,10 @@ cookieconsent.run({
  <span class="dropdown-text">Introduction to AlphaFold</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./notebooks/07_colabfold.html" rel="" target="">
+ <span class="dropdown-text">Running AlphaFold on Google Colab</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./notebooks/02_hpc.html" rel="" target="">
  <span class="dropdown-text">Introduction to HPC</span></a>
   </li>  
@@ -180,10 +184,6 @@ cookieconsent.run({
         <li>
     <a class="dropdown-item" href="./notebooks/06_aws.html" rel="" target="">
  <span class="dropdown-text">Running AlphaFold on Cloud</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./notebooks/07_colabfold.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Google Colab</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./notebooks/08_biocommons.html" rel="" target="">
@@ -215,11 +215,11 @@ cookieconsent.run({
   <li><a href="#b.-osx-mac-computers-and-laptops" id="toc-b.-osx-mac-computers-and-laptops" class="nav-link" data-scroll-target="#b.-osx-mac-computers-and-laptops">B. OSX (Mac computers and laptops)</a></li>
   <li><a href="#c.-windows" id="toc-c.-windows" class="nav-link" data-scroll-target="#c.-windows">C. Windows</a>
   <ul class="collapse">
-  <li><a href="#i.-putty-easy" id="toc-i.-putty-easy" class="nav-link" data-scroll-target="#i.-putty-easy">i. PuTTY (Easy)</a></li>
-  <li><a href="#ii.-wsl-and-ubuntu-advanced" id="toc-ii.-wsl-and-ubuntu-advanced" class="nav-link" data-scroll-target="#ii.-wsl-and-ubuntu-advanced">ii. WSL and Ubuntu (Advanced)</a></li>
+  <li><a href="#option-i.-putty-easy" id="toc-option-i.-putty-easy" class="nav-link" data-scroll-target="#option-i.-putty-easy">Option i. PuTTY (Easy)</a></li>
+  <li><a href="#option-ii.-wsl-and-ubuntu-advanced" id="toc-option-ii.-wsl-and-ubuntu-advanced" class="nav-link" data-scroll-target="#option-ii.-wsl-and-ubuntu-advanced">Option ii. WSL and Ubuntu (Advanced)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#off-campus-access" id="toc-off-campus-access" class="nav-link" data-scroll-target="#off-campus-access">2. Off-campus access</a></li>
+  <li><a href="#off-campus-access" id="toc-off-campus-access" class="nav-link" data-scroll-target="#off-campus-access">3. Off-campus access</a></li>
   </ul>
 </nav>
     </div>
@@ -246,6 +246,7 @@ cookieconsent.run({
 <section id="get-a-google-account." class="level1">
 <h1>1. Get a Google Account.</h1>
 <p>We will be utilising <a href="https://colab.research.google.com/">Google Colab</a>, you will need a google account to use this service.</p>
+<p><br></p>
 </section>
 <section id="get-a-shell-terminal-emulator" class="level1">
 <h1>2. Get a shell terminal emulator</h1>
@@ -268,13 +269,13 @@ cookieconsent.run({
 <p><br></p>
 <p>We also recommend installing <a href="https://www.xquartz.org/">XQuartz</a>, which will replace OSX’s native X-Window server. XQuartz has some extra features that may offer better performance when using GUI programs. You’ll need to log out and back in again after installing XQuartz in order for it to activate.</p>
 <p>Connection to Artemis can be made via ssh by issuing the following command in the terminal:</p>
-<pre><code>ssh -X &lt;unikey&gt;@hpc.sydney.edu.au</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-X</span> <span class="op">&lt;</span>unikey<span class="op">&gt;</span>@hpc.sydney.edu.au</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="c.-windows" class="level2">
 <h2 class="anchored" data-anchor-id="c.-windows">C. Windows</h2>
 <p>Windows has a couple of terminal programs and shells buried in the Programs menu (<code>cmd</code>, <code>powershell</code>). However, those aren’t going to work for us, as you’ll need extra programs and utilities to connect to Artemis, such as an <em>SSH</em> implementation. To use Artemis on Windows, you have a couple of options:</p>
-<section id="i.-putty-easy" class="level3">
-<h3 class="anchored" data-anchor-id="i.-putty-easy">i. PuTTY (Easy)</h3>
+<section id="option-i.-putty-easy" class="level3">
+<h3 class="anchored" data-anchor-id="option-i.-putty-easy">Option i. PuTTY (Easy)</h3>
 <p>PuTTY, an SSH and telnet client, is a good simple option.</p>
 <p>Head to the <a href="https://putty.org">PuTTY Website</a> and download PuTTY. You can install it to your computer, or just download the ‘binary’ and run it directly. Create a new session for use with Artemis as follows:</p>
 <ol type="1">
@@ -286,20 +287,20 @@ cookieconsent.run({
 <li>Connection type: <strong>SSH</strong></li>
 </ul>
 <p><img src="./fig/placeholder.png" style="margin:10px;height:400px"></p>
-<ol start="2" type="1">
+<ol start="3" type="1">
 <li>Name this session <strong>“Artemis”</strong> and click ‘Save’</li>
 </ol>
 <p>Note that PuTTY does not provide an X11 server natievly, so you won’t be able to use GUI programs on Artemis with <em>just</em> PuTTY. You can optionally install <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> or similar to enable X-11 forwarding).</p>
 </section>
-<section id="ii.-wsl-and-ubuntu-advanced" class="level3">
-<h3 class="anchored" data-anchor-id="ii.-wsl-and-ubuntu-advanced">ii. WSL and Ubuntu (Advanced)</h3>
+<section id="option-ii.-wsl-and-ubuntu-advanced" class="level3">
+<h3 class="anchored" data-anchor-id="option-ii.-wsl-and-ubuntu-advanced">Option ii. WSL and Ubuntu (Advanced)</h3>
 <p>Install Ubuntu or some other Linux distro on the Windows Subsystem for Linux see <a href="https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview">here for details</a>. This one will give you the full suite of Linux functions.</p>
 <p><br></p>
 </section>
 </section>
 </section>
 <section id="off-campus-access" class="level1">
-<h1>2. Off-campus access</h1>
+<h1>3. Off-campus access</h1>
 <p>If you’re attempting this training by yourself, or following on <strong><a href="https://uni-sydney.zoom.us/">Zoom</a></strong>, <strong>off-campus</strong> then you’ll need to connect to the Sydney internet network <strong>before</strong> you can connect to Artemis.</p>
 <p><strong>VPN</strong> (Virtual Private Network) is a protocol that allows you to tap into a local private network remotely. Follow USyd Service Now instructions <a href="https://sydneyuni.service-now.com/sm?id=kb_article_view&amp;sysparm_article=KB0011049&amp;sys_kb_id=9e86e1a3dbdf0c50e35b89e4059619b9">on the Cisco Any Connect VPN</a>. Once you’ve connected to the VPN, the above connection methods will work, just as though you were on-campus.</p>
 

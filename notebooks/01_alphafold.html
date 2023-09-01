@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -128,6 +162,10 @@ cookieconsent.run({
  <span class="dropdown-text">Introduction to AlphaFold</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../notebooks/07_colabfold.html" rel="" target="">
+ <span class="dropdown-text">Running AlphaFold on Google Colab</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../notebooks/02_hpc.html" rel="" target="">
  <span class="dropdown-text">Introduction to HPC</span></a>
   </li>  
@@ -146,10 +184,6 @@ cookieconsent.run({
         <li>
     <a class="dropdown-item" href="../notebooks/06_aws.html" rel="" target="">
  <span class="dropdown-text">Running AlphaFold on Cloud</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../notebooks/07_colabfold.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Google Colab</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../notebooks/08_biocommons.html" rel="" target="">
@@ -228,14 +262,35 @@ DIDGDGQVNYEEFVQMMTAK*</code></pre>
 <section id="use-cases" class="level2">
 <h2 class="anchored" data-anchor-id="use-cases">Use cases</h2>
 <ul>
-<li><p>Protein Structure Prediction: Understanding the 3D structure of proteins is crucial because a protein’s function is intricately linked to its shape. By accurately predicting protein structures, researchers can gain insights into their functions, interactions, and potential roles in various biological processes.</p></li>
-<li><p>Drug Discovery: Many diseases are caused by malfunctioning proteins. With accurate protein structure predictions, researchers can identify potential drug targets and design molecules that specifically interact with the target protein, leading to the development of new drugs and therapies.</p></li>
-<li><p>Biological Research: AlphaFold aids researchers in studying the underlying mechanisms of biological processes. Protein structures provide insights into how proteins function, interact with other molecules, and carry out their roles in cells.</p></li>
-<li><p>Disease Understanding: Knowing the structures of proteins associated with diseases helps researchers understand how these proteins contribute to the disease’s development. This understanding can pave the way for novel therapeutic approaches.</p></li>
-<li><p>Engineering and Design: AlphaFold can assist in protein engineering by designing proteins with specific functions or properties, such as creating enzymes with improved catalytic activities or generating novel protein structures for industrial applications.</p></li>
-<li><p>Bioinformatics and Data Interpretation: AlphaFold’s predictions can complement experimental data, helping researchers interpret experimental results and guiding further experiments. It can provide structural context to help explain biochemical and genetic observations.</p></li>
-<li><p>Functional Annotations: Predicting protein structures can aid in annotating the functions of newly sequenced genes and proteins, especially when experimental data is limited.</p></li>
-<li><p>Reducing Experimental Costs: Determining protein structures experimentally using methods like X-ray crystallography or nuclear magnetic resonance (NMR) can be time-consuming and expensive. AlphaFold’s predictions can provide a cost-effective alternative to obtaining initial structural information.</p></li>
+<li>Protein Structure Prediction: Understanding the 3D structure of proteins is crucial because a protein’s function is intricately linked to its shape. By accurately predicting protein structures, researchers can gain insights into their functions, interactions, and potential roles in various biological processes.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_alphafold.py</span> input.fasta ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>At it’s core, AlphaFold needs a FASTA file to make predictions.</p>
+<ul>
+<li><p>Drug Discovery: Many diseases are caused by malfunctioning proteins. Interpreting the accurate protein structure predictions, researchers can identify potential drug targets and design molecules that specifically interact with the target protein, leading to the development of new drugs and therapies.</p></li>
+<li><p>Biological Research: AlphaFold aids researchers in studying the underlying mechanisms of biological processes. Protein structures provide insights into how proteins function, interact with other molecules, and carry out their roles in cells. One may use the predicted protein structures as input for docking simulations to study protein-protein interactions, for example:</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rosetta_scripts</span> <span class="at">-s</span> receptor.pdb <span class="at">-l</span> ligand.pdb <span class="at">-parser:protocol</span> docking.xml <span class="at">-score:weights</span> ref15.wts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Where <code>receptor.pdb</code> is the AlphaFold output, <code>ligand.pdb</code> is the ligand structure, and <code>docking.xml</code> is a RosettaScripts protocol file for docking simulations.</p>
+<ul>
+<li>Disease Understanding: Knowing the structures of proteins associated with diseases helps researchers understand how these proteins contribute to the disease’s development. This understanding can pave the way for novel therapeutic approaches where you may use predicted structures in molecular dynamics simulations to understand how mutations affect protein stability:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gromacs</span> grompp <span class="at">-f</span> md.mdp <span class="at">-c</span> input.gro <span class="at">-p</span> topol.top <span class="at">-o</span> md.tpr</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gromacs</span> mdrun <span class="at">-v</span> <span class="at">-deffnm</span> md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Where <code>md.mdp</code> is the <em>GROMACS</em> configuration file, <code>input.gro</code> is the structure predicted by AlphaFold, and <code>topol.top</code> is the topology file.</p>
+<ul>
+<li>Engineering and Design: AlphaFold can assist in protein engineering by designing proteins with specific functions or properties, such as creating enzymes with improved catalytic activities or generating novel protein structures for industrial applications.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rosetta_scripts</span> <span class="at">-s</span> starting_structure.pdb <span class="at">-parser:protocol</span> design.xml <span class="at">-score:weights</span> ref15.wts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Where <code>starting_structure.pdb</code> is the input structure from AlphaFold, <code>design.xml</code> is a <em>RosettaScripts</em> protocol file for design, and <code>ref15.wts</code> are the scoring weights.</p>
+<ul>
+<li><p>Bioinformatics and Data Interpretation: AlphaFold’s predictions can complement experimental data, helping researchers interpret experimental results and guiding further experiments. It can provide structural context to help explain biochemical and genetic observations, and predictions may integrated into analysis pipelines.</p></li>
+<li><p>Functional Annotations: Predicting protein structures can aid in annotating the functions of newly sequenced genes and proteins, especially when experimental data is limited. One can compare AlphaFold predictions to known protein structures and functions using tools like BLAST or Pfam:</p></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-query</span> query.fasta <span class="at">-db</span> nr <span class="at">-out</span> results.txt <span class="at">-evalue</span> 1e-5 <span class="at">-outfmt</span> 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Where <code>query.fasta</code> is your <em>FASTA</em> sequence, and <code>nr</code> is the <em>BLAST</em> database.</p>
+<ul>
+<li>Reducing Experimental Costs: Determining protein structures experimentally using methods like X-ray crystallography or nuclear magnetic resonance (NMR) can be time-consuming and expensive. AlphaFold’s predictions can provide a cost-effective alternative to obtaining initial structural information and prioritising which proteins to study experimentally.</li>
 </ul>
 </section>
 <section id="citations" class="level2">
