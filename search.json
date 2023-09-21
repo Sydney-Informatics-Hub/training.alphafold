@@ -7,6 +7,13 @@
     "text": "We will be utilising Google Colab, you will need a google account to use this service."
   },
   {
+    "objectID": "setup.html#optional.-singularity-access-on-artemis",
+    "href": "setup.html#optional.-singularity-access-on-artemis",
+    "title": "Setup",
+    "section": "Optional. Singularity Access on Artemis",
+    "text": "Optional. Singularity Access on Artemis\nIf you require the Singularity versions of AlphaFold, please log a request to be given access to Singularity."
+  },
+  {
     "objectID": "setup.html#a.-linux-systems",
     "href": "setup.html#a.-linux-systems",
     "title": "Setup",
