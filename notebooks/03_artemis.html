@@ -300,7 +300,8 @@ cookieconsent.run({
 <section id="artemis-specific-outputs" class="level4">
 <h4 class="anchored" data-anchor-id="artemis-specific-outputs">Artemis specific outputs</h4>
 <p>By default, at the completion of a job (successful or otherwise) these 3 output files will be generated in the folder in which the job was submitted.</p>
-<p>|:–|—| | JobName.<strong>e</strong>JobID | Contains <strong>e</strong>rror/warning messages – those usually printed to <em>stderr</em> | | JobName.<strong>o</strong>JobID | Contains <strong>o</strong>utput messages – those usually printed to <em>stdout</em> | | JobName.<strong>o</strong>JobID**_usage** | short summary of the resources <strong>used</strong> by your job |</p>
+<p>|——–|——–| | JobName.<strong>e</strong>JobID | Contains <strong>e</strong>rror/warning messages – those usually printed to <em>stderr</em> | | JobName.<strong>o</strong>JobID | Contains <strong>o</strong>utput messages – those usually printed to <em>stdout</em> | | JobName.<strong>o</strong>JobID**_usage** | short summary of the resources <strong>used</strong> by your job |</p>
+<p>: PBS job outputs</p>
 <p>If your job has not completed successfully or AlphaFold outputs have not been generated as expected, these files may help diagnose what wen wrong (or inform you what went right!)</p>
 </section>
 <section id="alphafold-specific-outputs" class="level4">
@@ -309,10 +310,11 @@ cookieconsent.run({
 <pre><code>--output_dir=${WORKDIR}/output_directory</code></pre>
 <p>In our case, this should resolve to the directory</p>
 <pre class="output"><code>/project/Training/demo1/output_directory</code></pre>
-<p>This folder will be created by AlphaFold if it does not exist, and fill it with the following key files.</p>
-<p>Quick-view an example of the output:</p>
+<p>This folder will be created by AlphaFold if it does not exist, and will contain the predicted structures of the target protein represented in the following key files - but may vary depending on the options in your job.</p>
+<p>|——–|——–| | msas | Folder of intermediate step output from other tools (<code>hmmer</code>, <code>kalign</code>) used to construct the input MSA.| | timings.json | A JSON format text file containing the times taken to run each section of the AlphaFold pipeline. | | ranking_debug.json | A JSON format text file containing the pLDDT values used to perform the model ranking, and a mapping back to the original model names. | | features.pkl | A Python pickle file containing the input feature NumPy arrays used by the models to produce the structures. | | result_model_<em>.pkl || | ranked_</em>.pdb | A PDB format text file containing the predicted structures, after reordering by model confidence. | | relaxed_model_<em>.pdb | A PDB format text file containing the predicted structure, after performing an Amber relaxation procedure on the unrelaxed structure prediction | | unrelaxed_model_</em>.pdb | A PDB format text file containing the predicted structure, exactly as outputted by the model. |</p>
+<p>Quick-view an example of the output (note: this requires X-11 forwarding to be enabled when connected to Artemis):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qsub</span> <span class="at">-X</span> <span class="at">-I</span> <span class="at">-P</span> Training</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load pymol</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load pymol/2.4.0</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pymol</span> /project/Training/DATA/example.pbd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
