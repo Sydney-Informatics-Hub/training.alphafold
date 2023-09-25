@@ -236,7 +236,7 @@ cookieconsent.run({
 <p>To actually run a computationally intensive AlphaFold job, we must create a PBS <em>jobscript</em>, which is a standard shell script with a few PBS-specific directives, that is sent to the job scheduler for execution. Most requirements are on Artemis already, but you must bring your own <code>.fasta</code> file.</p>
 <section id="navigate-to-a-working-directory." class="level3">
 <h3 class="anchored" data-anchor-id="navigate-to-a-working-directory.">Navigate to a working directory.</h3>
-<p>When connecting to Artemis you will be in the directory <code>/home/&lt;unikey&gt;</code>. This folder has 10gb of storage only, so is not ideal to run computational work from. Rather, consider the <code>/scratch</code> and <code>/project</code> directories. For our demo, we will work in the <em>Training</em> project in a sub-folder of our creation. Your projects in the <code>/project</code> folder have up to 1TB of storage space available shared between other members of your <a href="dashr.sydney.edu.au">project</a>.</p>
+<p>When connecting to Artemis you will be in the directory <code>/home/&lt;unikey&gt;</code>. This folder has 10gb of storage only, so is not ideal to run computational work from. Rather, consider the <code>/scratch</code> and <code>/project</code> directories. For our demo, we will work in the <em>Training</em> project in a sub-folder of our creation. Your projects in the <code>/project</code> folder have up to 1TB of storage space available shared between other members of your <a href="https://dashr.sydney.edu.au">project</a>.</p>
 <p>Follow these steps to navigate to the project folder and create a new directory.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /project/Training</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> demo1</span>
@@ -300,8 +300,27 @@ cookieconsent.run({
 <section id="artemis-specific-outputs" class="level4">
 <h4 class="anchored" data-anchor-id="artemis-specific-outputs">Artemis specific outputs</h4>
 <p>By default, at the completion of a job (successful or otherwise) these 3 output files will be generated in the folder in which the job was submitted.</p>
-<p>|——–|——–| | JobName.<strong>e</strong>JobID | Contains <strong>e</strong>rror/warning messages – those usually printed to <em>stderr</em> | | JobName.<strong>o</strong>JobID | Contains <strong>o</strong>utput messages – those usually printed to <em>stdout</em> | | JobName.<strong>o</strong>JobID**_usage** | short summary of the resources <strong>used</strong> by your job |</p>
-<p>: PBS job outputs</p>
+<table class="table">
+<caption>PBS job outputs</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>JobName.<strong>e</strong>JobID</td>
+<td>Contains <strong>e</strong>rror/warning messages – those usually printed to <em>stderr</em></td>
+</tr>
+<tr class="even">
+<td>JobName.<strong>o</strong>JobID</td>
+<td>Contains <strong>o</strong>utput messages – those usually printed to <em>stdout</em></td>
+</tr>
+<tr class="odd">
+<td>JobName.<strong>o</strong>JobID**_usage**</td>
+<td>short summary of the resources <strong>used</strong> by your job</td>
+</tr>
+</tbody>
+</table>
 <p>If your job has not completed successfully or AlphaFold outputs have not been generated as expected, these files may help diagnose what wen wrong (or inform you what went right!)</p>
 </section>
 <section id="alphafold-specific-outputs" class="level4">
@@ -311,11 +330,50 @@ cookieconsent.run({
 <p>In our case, this should resolve to the directory</p>
 <pre class="output"><code>/project/Training/demo1/output_directory</code></pre>
 <p>This folder will be created by AlphaFold if it does not exist, and will contain the predicted structures of the target protein represented in the following key files - but may vary depending on the options in your job.</p>
-<p>|——–|——–| | msas | Folder of intermediate step output from other tools (<code>hmmer</code>, <code>kalign</code>) used to construct the input MSA.| | timings.json | A JSON format text file containing the times taken to run each section of the AlphaFold pipeline. | | ranking_debug.json | A JSON format text file containing the pLDDT values used to perform the model ranking, and a mapping back to the original model names. | | features.pkl | A Python pickle file containing the input feature NumPy arrays used by the models to produce the structures. | | result_model_<em>.pkl || | ranked_</em>.pdb | A PDB format text file containing the predicted structures, after reordering by model confidence. | | relaxed_model_<em>.pdb | A PDB format text file containing the predicted structure, after performing an Amber relaxation procedure on the unrelaxed structure prediction | | unrelaxed_model_</em>.pdb | A PDB format text file containing the predicted structure, exactly as outputted by the model. |</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>msas</td>
+<td>Folder of intermediate step output from other tools (<code>hmmer</code>, <code>kalign</code>) used to construct the input MSA.</td>
+</tr>
+<tr class="even">
+<td>timings.json</td>
+<td>A JSON format text file containing the times taken to run each section of the AlphaFold pipeline.</td>
+</tr>
+<tr class="odd">
+<td>ranking_debug.json</td>
+<td>A JSON format text file containing the pLDDT values used to perform the model ranking, and a mapping back to the original model names.</td>
+</tr>
+<tr class="even">
+<td>features.pkl</td>
+<td>A Python pickle file containing the input feature NumPy arrays used by the models to produce the structures.</td>
+</tr>
+<tr class="odd">
+<td>result_model_*.pkl</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ranked_*.pdb</td>
+<td>A PDB format text file containing the predicted structures, after reordering by model confidence.</td>
+</tr>
+<tr class="odd">
+<td>relaxed_model_*.pdb</td>
+<td>A PDB format text file containing the predicted structure, after performing an Amber relaxation procedure on the unrelaxed structure prediction</td>
+</tr>
+<tr class="even">
+<td>unrelaxed_model_*.pdb</td>
+<td>A PDB format text file containing the predicted structure, exactly as outputted by the model.</td>
+</tr>
+</tbody>
+</table>
 <p>Quick-view an example of the output (note: this requires X-11 forwarding to be enabled when connected to Artemis):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qsub</span> <span class="at">-X</span> <span class="at">-I</span> <span class="at">-P</span> Training</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load pymol/2.4.0</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pymol</span> /project/Training/DATA/example.pbd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pymol</span> example.pbd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
