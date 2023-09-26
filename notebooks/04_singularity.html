@@ -216,6 +216,7 @@ cookieconsent.run({
   <ul class="collapse">
   <li><a href="#alphafold-with-singularity-on-artemis-or-anywhere" id="toc-alphafold-with-singularity-on-artemis-or-anywhere" class="nav-link" data-scroll-target="#alphafold-with-singularity-on-artemis-or-anywhere">AlphaFold with Singularity on Artemis (or anywhere)</a></li>
   </ul></li>
+  <li><a href="#colabfold-singularity-image" id="toc-colabfold-singularity-image" class="nav-link" data-scroll-target="#colabfold-singularity-image">Colabfold singularity image</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -243,7 +244,8 @@ cookieconsent.run({
 <section id="alphafold-with-singularity-on-artemis-or-anywhere" class="level3">
 <h3 class="anchored" data-anchor-id="alphafold-with-singularity-on-artemis-or-anywhere">AlphaFold with Singularity on Artemis (or anywhere)</h3>
 <p>We make use of our AlphaFold Docker images to build and run AF on Artemis. This is a two-step process. You must first build the docker image into a Singularity image. Then you may run it as below.</p>
-<p>Navigate to your project folder, e.g.&nbsp;<code>cd /project/Training/AF</code> We first make a new jobscript for the build step, <code>nano alpha_build.pbs</code>:</p>
+<p>Navigate to your project folder, e.g.&nbsp;<code>cd /project/Training/AF</code></p>
+<p>First make a new jobscript for the build step, <code>nano alpha_build.pbs</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -P Training</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=1:ncpus=2:mem=16gb:ngpus=0</span></span>
@@ -260,20 +262,25 @@ cookieconsent.run({
 <p>Run the build step with <code>qsub alpha_build.pbs</code>.</p>
 <p>You only have to do this once. Alternatively, you can build the image offline and move the Singularity image to Artemis, or move this file anywhere else you wish to run with Singularity. Note, if you make any changes upstream to the Docker image, you must rebuild it to have those changes implemented.</p>
 <p>Next, make a jobscript to actually run the image, <code>nano alpha_sing.pbs</code></p>
-<pre><code>#!/bin/bash
-#PBS -P Training
-#PBS -l select=1:ncpus=4:mem=32gb:ngpus=1
-#PBS -l walltime=02:00:00
-#PBS -N job_colab01_gpu
-
-module load singularity cuda/10.2.89
-
-cd $PBS_O_WORKDIR
-
-singularity run --nv /project/Training/DATA/colab.img /bin/bash -c "colabfold_batch --amber --templates --num-recycle 3 /project/Training/DATA/input.fasta "$PBS_O_WORKDIR"/output"</code></pre>
-
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -P Training</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=1:ncpus=4:mem=32gb:ngpus=1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=02:00:00</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N job_colab01_gpu</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load singularity cuda/10.2.89</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> run <span class="at">--nv</span> /project/Training/DATA/colab.img /bin/bash <span class="at">-c</span> <span class="st">"colabfold_batch --amber --templates --num-recycle 3 /project/Training/DATA/input.fasta "</span><span class="va">$PBS_O_WORKDIR</span><span class="st">"/output"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
+<section id="colabfold-singularity-image" class="level2">
+<h2 class="anchored" data-anchor-id="colabfold-singularity-image">Colabfold singularity image</h2>
+<p>Note: You can grab a copy of the 8GB Singularity image and skip the build step!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-O</span> colab.img https://cloudstor.aarnet.edu.au/plus/s/OlBeNi6xNV9wBMr/download</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 </section>
 
