@@ -217,6 +217,7 @@ cookieconsent.run({
   <ul class="collapse">
   <li><a href="#alphafold-with-singularity-on-artemis-or-anywhere" id="toc-alphafold-with-singularity-on-artemis-or-anywhere" class="nav-link" data-scroll-target="#alphafold-with-singularity-on-artemis-or-anywhere">AlphaFold with Singularity on Artemis (or anywhere)</a></li>
   </ul></li>
+  <li><a href="#timing" id="toc-timing" class="nav-link" data-scroll-target="#timing">Timing</a></li>
   <li><a href="#colabfold-singularity-image" id="toc-colabfold-singularity-image" class="nav-link" data-scroll-target="#colabfold-singularity-image">Colabfold singularity image</a></li>
   </ul></li>
   </ul>
@@ -265,7 +266,7 @@ cookieconsent.run({
 <p>Next, make a jobscript to actually run the image, <code>nano alpha_sing.pbs</code></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -P Training</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=1:ncpus=4:mem=32gb:ngpus=1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=02:00:00</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -N job_colab01_gpu</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -273,8 +274,12 @@ cookieconsent.run({
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="va">$PBS_O_WORKDIR</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> run <span class="at">--nv</span> /project/Training/DATA/colab.img /bin/bash <span class="at">-c</span> <span class="st">"colabfold_batch --amber --templates --num-recycle 3 /project/Training/DATA/input.fasta "</span><span class="va">$PBS_O_WORKDIR</span><span class="st">"/output"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">singularity</span> run <span class="at">--nv</span> /project/Training/DATA/colab.img /bin/bash <span class="at">-c</span> <span class="st">"colabfold_batch --templates --num-recycle 1 /project/Training/DATA/input.fasta "</span><span class="va">$PBS_O_WORKDIR</span><span class="st">"/output"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
+<section id="timing" class="level2">
+<h2 class="anchored" data-anchor-id="timing">Timing</h2>
+<p>This job takes around 8 minutes with 8 cpus, 32 gb ram, and 1 gpu. Incredibly fast to make a prediction compared with native AF (albeit with different parameters and quality of model results). Without the GPU it takes around 40 minutes.</p>
 </section>
 <section id="colabfold-singularity-image" class="level2">
 <h2 class="anchored" data-anchor-id="colabfold-singularity-image">Colabfold singularity image</h2>
