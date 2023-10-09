@@ -4,14 +4,21 @@
     "href": "index.html",
     "title": "AlphaFold",
     "section": "",
-    "text": "This is a training course aimed at users wanting to learn about AlphaFold to perform predictions of protein structures. Beyond an introduction to the capabilities of AlphaFold, topics will cover different techincal approaches to run AlphaFold including using High Performance Computing and Cloud environments."
+    "text": "This is a training course aimed at users wanting to learn about AlphaFold to perform predictions of protein structures. Beyond an introduction to the capabilities of AlphaFold, topics will cover different technical approaches to run AlphaFold including using High Performance Computing and Cloud environments."
+  },
+  {
+    "objectID": "index.html#watch-the-recording",
+    "href": "index.html#watch-the-recording",
+    "title": "AlphaFold",
+    "section": "Watch the Recording",
+    "text": "Watch the Recording\nThis was delivered as an interactive workshop at Sydney. If you find yourself here in the future feel free to watch the recording:\nhttps://youtu.be/G2mDQ1th0CQ"
   },
   {
     "objectID": "index.html#trainers",
     "href": "index.html#trainers",
     "title": "AlphaFold",
     "section": "Trainers",
-    "text": "Trainers\n\nChristopher Le\nJake Chen FMH\nNathaniel Butterworth SIH"
+    "text": "Trainers\n\nJake Chen FMH\nNathaniel Butterworth SIH\nChristopher Le SIH\nNandan Deshpande SIH"
   },
   {
     "objectID": "index.html#course-pre-requisites-and-setup-requirements",
