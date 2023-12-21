@@ -1,47 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/index.html</loc>
-    <lastmod>2023-10-10T04:45:32.238Z</lastmod>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/02_labeling.html</loc>
+    <lastmod>2023-12-21T00:03:19.320Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/CHEATSHEET.html</loc>
-    <lastmod>2023-10-10T04:45:31.194Z</lastmod>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/01_microscopy.html</loc>
+    <lastmod>2023-12-21T00:03:18.760Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/01_alphafold.html</loc>
-    <lastmod>2023-10-10T04:45:30.402Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/05_nci.html</loc>
-    <lastmod>2023-10-10T04:45:29.346Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/07_colabfold.html</loc>
-    <lastmod>2023-10-10T04:45:28.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/03_artemis.html</loc>
-    <lastmod>2023-10-10T04:45:27.638Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/04_singularity.html</loc>
-    <lastmod>2023-10-10T04:45:28.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/06_aws.html</loc>
-    <lastmod>2023-10-10T04:45:28.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/08_biocommons.html</loc>
-    <lastmod>2023-10-10T04:45:29.734Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/02_hpc.html</loc>
-    <lastmod>2023-10-10T04:45:30.834Z</lastmod>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/03b_yolo.html</loc>
+    <lastmod>2023-12-21T00:03:18.156Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/setup.html</loc>
-    <lastmod>2023-10-10T04:45:31.750Z</lastmod>
+    <lastmod>2023-12-21T00:03:17.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/CHEATSHEET.html</loc>
+    <lastmod>2023-12-21T00:03:17.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/index.html</loc>
+    <lastmod>2023-12-21T00:03:17.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/04_tools.html</loc>
+    <lastmod>2023-12-21T00:03:18.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Sydney-Informatics-Hub/training.alphafold/notebooks/03_avizo.html</loc>
+    <lastmod>2023-12-21T00:03:19.020Z</lastmod>
   </url>
 </urlset>

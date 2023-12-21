@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AlphaFold at Sydney – biocommons</title>
+<title>Image Segmentation for Microscopy – b_yolo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,7 +102,7 @@ cookieconsent.run({
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">AlphaFold at Sydney</span>
+    <span class="navbar-title">Image Segmentation for Microscopy</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -125,36 +125,24 @@ cookieconsent.run({
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="../notebooks/01_alphafold.html" rel="" target="">
- <span class="dropdown-text">Introduction to AlphaFold</span></a>
+    <a class="dropdown-item" href="../notebooks/01_microscopy.html" rel="" target="">
+ <span class="dropdown-text">Microscopy Context</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../notebooks/07_colabfold.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Google Colab</span></a>
+    <a class="dropdown-item" href="../notebooks/02_labeling.html" rel="" target="">
+ <span class="dropdown-text">Labeling and Annotation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../notebooks/02_hpc.html" rel="" target="">
- <span class="dropdown-text">Introduction to HPC</span></a>
+    <a class="dropdown-item" href="../notebooks/03_avizo.html" rel="" target="">
+ <span class="dropdown-text">Segmentation with Avizo</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../notebooks/03_artemis.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Artemis</span></a>
+    <a class="dropdown-item" href="../notebooks/03b_yolo.html" rel="" target="">
+ <span class="dropdown-text">Segmentation with YOLO</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../notebooks/04_singularity.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold with Docker/Singularity</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../notebooks/05_nci.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on NCI Gadi</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../notebooks/06_aws.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Cloud</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../notebooks/08_biocommons.html" rel="" target="">
- <span class="dropdown-text">Running AlphaFold on Biocommons Galaxy</span></a>
+    <a class="dropdown-item" href="../notebooks/04_tools.html" rel="" target="">
+ <span class="dropdown-text">Tools</span></a>
   </li>  
     </ul>
   </li>
@@ -175,11 +163,12 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#running-alphafold-on-biocommons-galaxy" id="toc-running-alphafold-on-biocommons-galaxy" class="nav-link active" data-scroll-target="#running-alphafold-on-biocommons-galaxy">Running AlphaFold on Biocommons Galaxy</a>
+  <li><a href="#image-segmentation-with-yolo" id="toc-image-segmentation-with-yolo" class="nav-link active" data-scroll-target="#image-segmentation-with-yolo">Image Segmentation with YOLO</a>
   <ul class="collapse">
-  <li><a href="#austrlalian-biocommons" id="toc-austrlalian-biocommons" class="nav-link" data-scroll-target="#austrlalian-biocommons">Austrlalian Biocommons</a></li>
-  <li><a href="#galaxy-australia" id="toc-galaxy-australia" class="nav-link" data-scroll-target="#galaxy-australia">Galaxy Australia</a></li>
-  <li><a href="#alphafold-on-galaxy" id="toc-alphafold-on-galaxy" class="nav-link" data-scroll-target="#alphafold-on-galaxy">AlphaFold on Galaxy</a></li>
+  <li><a href="#setup-your-python-environment" id="toc-setup-your-python-environment" class="nav-link" data-scroll-target="#setup-your-python-environment">Setup your Python environment</a></li>
+  <li><a href="#labels-to-yolo-format" id="toc-labels-to-yolo-format" class="nav-link" data-scroll-target="#labels-to-yolo-format">Labels to YOLO format</a></li>
+  <li><a href="#training-your-model" id="toc-training-your-model" class="nav-link" data-scroll-target="#training-your-model">Training your model</a></li>
+  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference">Inference</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -189,23 +178,86 @@ cookieconsent.run({
 
 
 
-<section id="running-alphafold-on-biocommons-galaxy" class="level1">
-<h1>Running AlphaFold on Biocommons Galaxy</h1>
-<section id="austrlalian-biocommons" class="level2">
-<h2 class="anchored" data-anchor-id="austrlalian-biocommons">Austrlalian Biocommons</h2>
-<p>The <a href="https://www.biocommons.org.au/">Australian Biocommons</a> is a digital capability aimed at enhancing Australian research in its ability to understand the molecular basis of life across environmental, agricultural and biomedical science.</p>
+<section id="image-segmentation-with-yolo" class="level1">
+<h1>Image Segmentation with YOLO</h1>
+<p>The <a href="https://docs.ultralytics.com/">YOLO computer vision model</a> provides the tools and architecture for image segmentation tasks.</p>
+<p>It is a command line/python tool, allows substantial flexibility, is open-source, and works on any platform.</p>
+<p>Here documented we use YoloV8 in its simplest form. Additional tools and advanced usage including YoloV5 can be found on the <a href="https://github.com/Sydney-Informatics-Hub/Microscopy-Segmentation/tree/main">main repo</a></p>
+<section id="setup-your-python-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setup-your-python-environment">Setup your Python environment</h2>
+<p>Start an Anaconda prompt or similar and execute the following commands</p>
+<pre><code>conda create -n yolo python=3.1
+conda activate yolo
+pip install ultralytics==8.0.227
+pip install scikit-learn==1.3.2</code></pre>
+<p>This will install all required packages.</p>
 </section>
-<section id="galaxy-australia" class="level2">
-<h2 class="anchored" data-anchor-id="galaxy-australia">Galaxy Australia</h2>
-<p><a href="https://usegalaxy.org.au/">Galaxy Australia</a> is an open, web-based platform for accessible, reproducible and transparent computational research.</p>
-<p>You must first register for Galaxy access using your Sydney credentials. This will give you access to the hundreds of bioinformatics tools on the platform.</p>
-<p>However, for access to AlphaFold an additional step must be made. Once registered with Galaxy <a href="https://site.usegalaxy.org.au/request/alphafold">fill in this form to use AlphaFold</a>.</p>
+<section id="labels-to-yolo-format" class="level2">
+<h2 class="anchored" data-anchor-id="labels-to-yolo-format">Labels to YOLO format</h2>
+<p>YOLO models need the data to be in a specific format and folder structure. Use the following tool to do this in one step assuming you created labels in [AnyLabeling]. If you created labels using some other method, check the [tools] folder for different conversion scripts.</p>
+<pre><code>python tools/anylableing2yolo.py --class_labels '{"mito": 0, "float": 1}' --input_dir 'input_data' --output_dir 'datasets/mito_data' --split_ratio 0.2</code></pre>
+<p>This will create a new folder in <code>datasets</code> with the following structure:</p>
+<pre><code>mito_data/
+├── images
+│&nbsp;&nbsp; ├── train
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image01.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image02.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image03.tif
+...
+│&nbsp;&nbsp; ├── validate
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image17.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image18.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image19.tif
+...
+├── labels
+│&nbsp;&nbsp; ├── train
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image01.txt
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image02.txt
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image03.txt
+...
+│&nbsp;&nbsp; ├── validate
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image17.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image18.tif
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── image19.tif</code></pre>
 </section>
-<section id="alphafold-on-galaxy" class="level2">
-<h2 class="anchored" data-anchor-id="alphafold-on-galaxy">AlphaFold on Galaxy</h2>
-<p>Once you have access, searching for AlphaFold in the left hand menu will bring up the tool.</p>
-<p>Fill in the options and then click <em>Run Tool</em>!</p>
-<p>From your dashboard on Galaxy, you can share any results you generate with the world: <a href="https://usegalaxy.org.au/datasets/a6e389a98c2d1678f2d92efc723dec14/preview">https://usegalaxy.org.au/datasets/a6e389a98c2d1678f2d92efc723dec14/preview</a></p>
+<section id="training-your-model" class="level2">
+<h2 class="anchored" data-anchor-id="training-your-model">Training your model</h2>
+<p>Now you can execute a task that will use a pre-trained model as a starting point and use your data to refine the model specific to your prediction tasks.</p>
+<p>On your command line execute the following</p>
+<pre><code>yolo detect train data=mito.yaml model=yolov8m-seg.pt</code></pre>
+<p>See all the available command line options here https://docs.ultralytics.com/modes/train/#arguments</p>
+<p>The choice of <code>yolov8m-seg.pt</code> is based on the performance https://docs.ultralytics.com/models/yolov8/#supported-tasks-and-modes and being specifically trained for semantic segmentation. Feel free to experiment with other models more tuned for your problem.</p>
+<p>The structure of <code>mito.yaml</code> file is as follows:</p>
+<pre><code>path: ../datasets/mito_data
+train: images/train  
+val: images/validate
+test:  # test images (optional)
+
+names:
+  0: mito
+  1: fat</code></pre>
+<p>Additional classes should be added (removed) as needed, and the paths should point to where your data are.</p>
+<p>If all goes well this will produce the weights of a trained model in the default output folder (<code>runs/segment/train/weights/best.pt</code>).</p>
+<p>We will now use this file to make predictions on new data!</p>
+</section>
+<section id="inference" class="level2">
+<h2 class="anchored" data-anchor-id="inference">Inference</h2>
+<p>The final step is to make predictions on new data</p>
+<pre><code>yolo predict model=runs/segment/train/weights/best.pt source=path/to/raw_images/</code></pre>
+<p>This will output data. However, we need to customise the output using Python to get a clean image mask similar to Avizo output, and probably what most users want for microscopy. The prediction script is probably what we want.</p>
+<pre><code>python predict.py model=runs/segment/train/weights/best.pt source=path/to/raw_images/</code></pre>
+<p>Where predict.py contains</p>
+<pre><code>from ultralytics import YOLO
+
+# Load a pretrained YOLOv8n-seg Segment model
+model = YOLO('runs/segment/train/weights/best.pt')
+
+# Run inference on an image
+results = model(=path/to/raw_images/)  # results list
+
+# View results
+for r in results:
+    print(r.masks)  # print the Masks object containing the detected instance masks</code></pre>
 
 
 </section>
